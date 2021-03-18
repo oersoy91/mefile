@@ -17,7 +17,7 @@ const readStorybookStatic = (filename) => {
   return fs.readFile(fileLoc);
 };
 
-app.prepare().then(() => {
+app.prepare().then(async () => {
   createServer(async (req, res) => {
     // Be sure to pass `true` as the second argument to `url.parse`.
     // This tells it to parse the query portion of the URL.

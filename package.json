@@ -19,6 +19,8 @@
     "build-server": "tsc --project tsconfig.server.json"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.3",
     "next": "10.0.8",
     "react": "17.0.1",
     "react-dom": "17.0.1"
