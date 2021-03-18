@@ -5,4 +5,4 @@ export default {
   title: "Common/Button",
 } as Meta;
 
-export const button = () => Button();
+export const button = () => <Button />;

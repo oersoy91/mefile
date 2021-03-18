@@ -5,4 +5,4 @@ export default {
   title: "Common/Logo",
 } as Meta;
 
-export const logo = () => Logo();
+export const logo = () => <Logo />;

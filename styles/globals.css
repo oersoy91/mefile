@@ -50,9 +50,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-button {
-  background: var(--btn-bg-color);
-  color: var(--btn-color);
-  border-radius: 9px;
-}
