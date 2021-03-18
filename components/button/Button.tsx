@@ -1,19 +1,7 @@
 import styles from "./Button.module.css";
 
-export type ButtonProps = {
-  primary: boolean;
-  label: string;
-};
-
-function Button({ primary, label, ...props }: ButtonProps) {
-  return (
-    <button
-      className={`${styles.btn} ${primary ? styles.primary : ""}`}
-      {...props}
-    >
-      {label}
-    </button>
-  );
+function Button() {
+  return <button className={styles.btn}>Login</button>;
 }
 
 export default Button;

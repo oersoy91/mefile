@@ -1,9 +1,45 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Black.ttf") format("truetype")
+      url("../public/fonts/Roboto-BlackItalic.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Bold.ttf") format("truetype"),
+    url("../public/fonts/Roboto-BoldItalic.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Italic.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Light.ttf") format("truetype"),
+    url("../public/fonts/Roboto-LightItalic.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Medium.ttf") format("truetype"),
+    url("../public/fonts/Roboto-MediumItalic.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Regular.ttf") format("truetype"),
+    url("../public/fonts/Roboto-Thin.ttf") format("truetype"),
+    url("../public/fonts/Roboto-ThinItalic.ttf") format("truetype");
+}
+
+:root {
+  --primary-color: #555;
+  --secondary-color: #248291;
+  --primary-text-color: #555;
+  --secondary-text-color: #248291;
+  --tertiary-text-color: #c1c1c1;
+  --btn-bg-color: #248291;
+  --btn-color: #fff;
+  --listheader-bg-color: #eaedef;
+  --navbar-color: linear-gradient(
+    var(--navbar-gradient-color-1),
+    var(--navbar-gradient-color-2),
+    var(--navbar-gradient-color-3)
+  );
+  --navbar-gradient-color-1: #35a49d;
+  --navbar-gradient-color-2: #35a49d;
+  --navbar-gradient-color-3: #1b524f;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  color: var(--primary-text-color);
 }
 
 a {
