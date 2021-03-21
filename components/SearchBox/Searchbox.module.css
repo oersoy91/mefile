@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--listheader-bg-color);
+  border-radius: 9px;
+  padding-left: 1em;
+  color: var(--primary-color);
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  padding: 1.2em;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  color: var(--tertiary-text-color);
+}
+
+.input::placeholder {
+  color: var(---primary-color);
+}
