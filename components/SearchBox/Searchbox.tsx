@@ -1,10 +1,14 @@
-import styles from "./Searchbox.module.css";
+import styles from "./searchbox.module.css";
 
-const Searchbox = () => {
+const Searchbox = ({ ...other }) => {
   return (
     <div className={styles.wrapper}>
       <img src="img/icon_search.svg" alt="searchIcon" />
-      <input className={styles.input} placeholder="Nach Personen suchen" />
+      <input
+        className={styles.input}
+        {...other}
+        placeholder="Nach Personen suchen"
+      />
     </div>
   );
 };

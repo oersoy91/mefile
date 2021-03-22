@@ -1,8 +1,25 @@
 import Head from "next/head";
 import EmployeeList from "../components/employeeList/employeeList";
+import Searchbox from "../components/searchbox/searchbox";
+import { useState } from "react";
+
 import styles from "../styles/Home.module.css";
 
 export default function EmployeeListPage({ persons }) {
+  const [keyword, setKeyword] = useState("");
+
+  const filterPersons = persons.filter(
+    (person) =>
+      person.first_name.toLowerCase().includes(keyword) ||
+      person.last_name.toLowerCase().includes(keyword)
+  );
+
+  const inputChange = (e) => {
+    e.preventDefault();
+
+    setKeyword(e.target.value.toLowerCase());
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,7 +27,8 @@ export default function EmployeeListPage({ persons }) {
       </Head>
 
       <main className={styles.main}>
-        <EmployeeList persons={persons} />
+        <Searchbox onChange={inputChange} />
+        <EmployeeList persons={filterPersons} />
       </main>
     </div>
   );

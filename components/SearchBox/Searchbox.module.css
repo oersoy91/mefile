@@ -4,7 +4,9 @@
   background-color: var(--listheader-bg-color);
   border-radius: 9px;
   padding-left: 1em;
+  width: 25vw;
   color: var(--primary-color);
+  margin-bottom: 50px;
 }
 
 .input {
