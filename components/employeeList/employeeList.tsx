@@ -1,6 +1,6 @@
 import styles from "./employeeList.module.css";
 
-const EmployeeList = () => {
+const EmployeeList = ({ persons }) => {
   return (
     <div>
       <div className={styles.header}>
@@ -22,51 +22,21 @@ const EmployeeList = () => {
           <div>Position</div>
         </button>
       </div>
-      <div className={styles.row}>
-        <div className={styles.img}>
-          <img
-            src="https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1616359182~hmac=42412ebdcb8cc2e1a78d51911edc9864"
-            alt=""
-          />
+
+      {persons.map((person) => (
+        <div className={styles.row} key={person.name}>
+          <div className={styles.img}>
+            <img src={person.profile_picture} alt={person.first_name} />
+          </div>
+          <div className={styles.firstname}>{person.first_name}</div>
+
+          <div className={styles.lastname}>{person.last_name}</div>
+
+          <div className={styles.status}>{person.status}</div>
+
+          <div className={styles.position}>{person.position}</div>
         </div>
-        <div className={styles.firstname}>Osman</div>
-
-        <div className={styles.lastname}>Ersoy</div>
-
-        <div className={styles.status}>Aktiv</div>
-
-        <div className={styles.position}>Junior Web Developer</div>
-      </div>
-      <div className={styles.row}>
-        <div className={styles.img}>
-          <img
-            src="https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1616359182~hmac=42412ebdcb8cc2e1a78d51911edc9864"
-            alt=""
-          />
-        </div>
-        <div className={styles.firstname}>Leon</div>
-
-        <div className={styles.lastname}>Machens</div>
-
-        <div className={styles.status}>Aktiv</div>
-
-        <div className={styles.position}> Senior Lead Developer</div>
-      </div>
-      <div className={styles.row}>
-        <div className={styles.img}>
-          <img
-            src="https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1616359182~hmac=42412ebdcb8cc2e1a78d51911edc9864"
-            alt=""
-          />
-        </div>
-        <div className={styles.firstname}>Philipp</div>
-
-        <div className={styles.lastname}>Gartz</div>
-
-        <div className={styles.status}>Aktiv</div>
-
-        <div className={styles.position}> Senior Web Developer</div>
-      </div>
+      ))}
     </div>
   );
 };
