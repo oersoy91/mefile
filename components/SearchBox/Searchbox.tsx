@@ -1,12 +1,17 @@
+import { ChangeEventHandler } from "react";
 import styles from "./Searchbox.module.css";
 
-const Searchbox = ({ ...other }) => {
+export type SearchboxProps = {
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};
+
+const Searchbox = ({ onChange }: SearchboxProps) => {
   return (
     <div className={styles.wrapper}>
       <img src="img/icon_search.svg" alt="searchIcon" />
       <input
         className={styles.input}
-        {...other}
+        onChange={onChange}
         placeholder="Nach Personen suchen"
       />
     </div>

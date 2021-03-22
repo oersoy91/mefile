@@ -5,4 +5,4 @@ export default {
   title: "Common/searchbox",
 } as Meta;
 
-export const searchbox = () => <Searchbox />;
+export const searchbox = () => <Searchbox onChange={console.log} />;

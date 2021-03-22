@@ -1,4 +1,4 @@
-import { Person } from "../../server/db";
+import { Person } from "../../utils/types";
 import styles from "./employeeList.module.css";
 
 export type EmployeeListProps = {
