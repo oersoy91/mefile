@@ -1,11 +1,13 @@
 import Head from "next/head";
 import EmployeeList from "../components/employeeList/employeeList";
-import Searchbox from "../components/searchbox/searchbox";
+import Searchbox from "../components/searchbox/Searchbox";
 import { useState } from "react";
+import { Person } from "../server/db";
 
 import styles from "../styles/Home.module.css";
+export type EmployeeListPageProps = { persons: Person[] };
 
-export default function EmployeeListPage({ persons }) {
+export default function EmployeeListPage({ persons }: EmployeeListPageProps) {
   const [keyword, setKeyword] = useState("");
 
   const filterPersons = persons.filter(

@@ -7,6 +7,30 @@ export type PersonnelDoc = {
   age: number;
 };
 
+export type Person = {
+  _id: string;
+  profile_picture: string;
+  first_name: string;
+  last_name: string;
+  age: number;
+  birthday: Date;
+  gender: string;
+  adress: Adress;
+  email: string;
+  start_contract: Date;
+  end_contract: Date;
+  end_trial_period: Date;
+  position: string;
+  status: string;
+};
+
+export type Adress = {
+  street: string;
+  house_number: number;
+  zip_code: number;
+  city: string;
+};
+
 let client = null;
 let db = null;
 

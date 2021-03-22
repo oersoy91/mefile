@@ -1,6 +1,11 @@
+import { Person } from "../../server/db";
 import styles from "./employeeList.module.css";
 
-const EmployeeList = ({ persons }) => {
+export type EmployeeListProps = {
+  persons: Person[];
+};
+
+const EmployeeList = ({ persons }: EmployeeListProps) => {
   return (
     <div>
       <div className={styles.header}>
@@ -24,7 +29,7 @@ const EmployeeList = ({ persons }) => {
       </div>
 
       {persons.map((person) => (
-        <div className={styles.row} key={person.name}>
+        <div className={styles.row} key={person._id}>
           <div className={styles.img}>
             <img src={person.profile_picture} alt={person.first_name} />
           </div>
