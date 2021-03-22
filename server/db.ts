@@ -13,13 +13,13 @@ export type Person = {
   first_name: string;
   last_name: string;
   age: number;
-  birthday: Date;
+  birthday: string;
   gender: string;
   adress: Adress;
   email: string;
-  start_contract: Date;
-  end_contract: Date;
-  end_trial_period: Date;
+  start_contract: string;
+  end_contract: string;
+  end_trial_period: string;
   position: string;
   status: string;
 };
