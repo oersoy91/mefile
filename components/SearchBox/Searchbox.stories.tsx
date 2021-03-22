@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react/types-6-0";
-import Searchbox from "./searchbox";
+import Searchbox from "./Searchbox";
 
 export default {
-  title: "Common/Searchbox",
+  title: "Common/searchbox",
 } as Meta;
 
 export const searchbox = () => <Searchbox />;

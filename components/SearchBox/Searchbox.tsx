@@ -1,4 +1,4 @@
-import styles from "./searchbox.module.css";
+import styles from "./Searchbox.module.css";
 
 const Searchbox = ({ ...other }) => {
   return (
