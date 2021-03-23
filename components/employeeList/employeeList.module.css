@@ -70,6 +70,7 @@
 
 .img img {
   width: 100%;
+  border-radius: 40px;
 }
 
 @media screen and (max-width: 400px) {
