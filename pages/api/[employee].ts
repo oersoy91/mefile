@@ -6,7 +6,7 @@ export default withDatabase(
   async (req: NextApiRequest, res: NextApiResponse) => {
     const { employee } = req.query;
 
-    const person = await readPerson(`${employee}`);
+    const person = await readPerson(employee);
     res.status(200).json(person);
   }
 );
