@@ -20,8 +20,11 @@
   --primary-text-color: #555;
   --secondary-text-color: #248291;
   --tertiary-text-color: #c1c1c1;
+  --primary-bg-color: #f9f9f9;
+  --secondary-bg-color: white;
   --btn-bg-color: #248291;
   --btn-color: #fff;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   --listheader-bg-color: #eaedef;
   --navbar-color: linear-gradient(
     var(--navbar-gradient-color-1),
@@ -40,6 +43,7 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 16px;
   color: var(--primary-text-color);
+  background-color: var(--primary-bg-color);
 }
 
 a {

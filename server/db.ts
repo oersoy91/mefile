@@ -17,7 +17,7 @@ export const withDatabase = (handler: Handler) => async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  await connectDB(url, "test12345");
+  await connectDB(url, "mefile");
   return await handler(req, res);
 };
 
@@ -33,6 +33,10 @@ export async function getCollection(collectioName) {
   return await db.collection(collectioName);
 }
 
+export async function employeeList(collectioName) {
+  return await db.collection(collectioName).find().toArray();
+}
+
 export function closeDB() {
   client.close();
 }
@@ -42,9 +46,9 @@ export async function createNewPersonnel(personnel) {
   return await personnelCollection.insertOne(personnel);
 }
 
-export async function readPersonnel(personnelName) {
-  const personnelCollection = await getCollection("test1111");
-  return await personnelCollection.findOne({ name: personnelName });
+export async function readPerson(personName) {
+  const personnelCollection = await getCollection("employeeList");
+  return await personnelCollection.findOne({ first_name: personName });
 }
 
 export async function updatePersonnelDoc(
