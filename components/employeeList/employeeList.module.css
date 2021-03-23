@@ -36,7 +36,7 @@
   text-align: center;
   background-color: var(--secondary-bg-color);
   border-radius: 9px;
-  margin-bottom: 15px;
+  margin-bottom: 1em;
   box-shadow: var(--box-shadow);
   font-weight: 500;
   transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;

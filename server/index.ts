@@ -19,7 +19,6 @@ const readStorybookStatic = (filename) => {
 
 app.prepare().then(async () => {
   createServer(async (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:6006");
     // Be sure to pass `true` as the second argument to `url.parse`.
     // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true);
