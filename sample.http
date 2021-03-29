@@ -1,1 +1,17 @@
-GET http://localhost:3000/api/personnel
+### GET
+GET http://localhost:3000/api/Mudi
+
+
+### DELETE
+DELETE http://localhost:3000/api/Mudi
+
+
+### POST
+POST http://localhost:3000/api/Mudi
+Content-Type: application/json
+
+{
+      "_id": 44444,
+      "first_name": "Mudi",
+      "Surname": "R"
+}
