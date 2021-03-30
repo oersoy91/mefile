@@ -11,7 +11,7 @@ export type EmployeeListPageProps = { persons: Person[] };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function EmployeeListPage() {
-  const { data: employeeList, error } = useSWR("/api/employeeList", fetcher);
+  const { data: employeeList, error } = useSWR("/api/employees", fetcher);
   const [keyword, setKeyword] = useState("");
 
   const inputChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export type PersonnelDoc = {
+export type EmployeeDoc = {
   name: string;
   id: number;
   age: number;
@@ -33,7 +33,7 @@ export async function getCollection(collectioName) {
   return await db.collection(collectioName);
 }
 
-export async function employeeList(collectioName) {
+export async function employees(collectioName) {
   return await db.collection(collectioName).find().toArray();
 }
 
@@ -41,45 +41,29 @@ export function closeDB() {
   client.close();
 }
 
-export async function createNewPersonnel(personnel) {
-  const personnelCollection = await getCollection("employeeList");
-  return await personnelCollection.insertOne(personnel);
+export async function createNewEmployee(employee) {
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection.insertOne(employee);
 }
 
-export async function readPerson(personName) {
-  const personnelCollection = await getCollection("employeeList");
-  return await personnelCollection.findOne({ first_name: personName });
+export async function readEmployee(id) {
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection.findOne({ id: id });
 }
 
-export async function updatePersonnelDoc(
-  personnelName,
-  fieldsToUpdate: Partial<PersonnelDoc>
-) {
-  const personnelCollection = await getCollection("employeeList");
-  const updateResult = await personnelCollection.updateOne(
-    { name: personnelName },
+export async function updateEmployee(id, fieldsToUpdate: Partial<EmployeeDoc>) {
+  const employeeCollection = await getCollection("employeeList");
+  const updateResult = await employeeCollection.updateOne(
+    { id: id },
     { $set: fieldsToUpdate }
   );
   return updateResult.modifiedCount >= 1;
 }
 
-export async function updatePersonnel(
-  personnelName,
-  newPersonnelName,
-  newID,
-  newAge
-) {
-  return await updatePersonnelDoc(personnelName, {
-    name: newPersonnelName,
-    id: newID,
-    age: newAge,
-  });
-}
-
-export async function deletePersonnel(personnelName) {
-  const personnelCollection = await getCollection("employeeList");
-  const deleteResult = await personnelCollection.deleteOne({
-    first_name: personnelName,
+export async function deleteEmployee(id) {
+  const employeeCollection = await getCollection("employeeList");
+  const deleteResult = await employeeCollection.deleteOne({
+    id: id,
   });
   return deleteResult.deletedCount >= 1;
 }

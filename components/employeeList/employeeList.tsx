@@ -30,7 +30,7 @@ const EmployeeList = ({ persons }: EmployeeListProps) => {
       </div>
 
       {persons.map((person) => (
-        <Link href={`/employee/${person.first_name}`} key={person._id}>
+        <Link href={`/employee/${person.id}`} key={person.id}>
           <div className={styles.row}>
             <div className={styles.img}>
               <img src={person.profile_picture} alt={person.first_name} />

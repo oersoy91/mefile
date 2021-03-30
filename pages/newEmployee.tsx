@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
 import { postData } from "../utils/fetchData";
 import { useState } from "react";
 
 const newEmployeePage = () => {
-  const router = useRouter();
-  const { employee } = router.query;
   const [name, setName] = useState("");
   const [id, setId] = useState("");
 
   const sendData = (e) => {
     e.preventDefault();
-    postData(employee, { first_name: name, _id: id });
+    postData({ first_name: name, id: id });
   };
 
   return (

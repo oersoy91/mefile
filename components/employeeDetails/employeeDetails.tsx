@@ -9,7 +9,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
     <div className={styles.container}>
       <div>{persons.last_name}</div>
       <div>{persons.first_name}</div>
-      <div>{persons._id}</div>
+      <div>{persons.id}</div>
       <div>{persons.age}</div>
     </div>
   );

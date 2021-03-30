@@ -9,7 +9,7 @@ export const employeeList = () => (
   <EmployeeList
     persons={[
       {
-        _id: "001",
+        id: "001",
         profile_picture:
           "https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1616359182~hmac=42412ebdcb8cc2e1a78d51911edc9864",
         first_name: "Osman",
@@ -31,7 +31,7 @@ export const employeeList = () => (
         status: "Aktiv",
       },
       {
-        _id: "002",
+        id: "002",
         profile_picture:
           "https://www.flaticon.com/svg/vstatic/svg/3135/3135715.svg?token=exp=1616359182~hmac=42412ebdcb8cc2e1a78d51911edc9864",
         first_name: "Leon",

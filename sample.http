@@ -3,15 +3,27 @@ GET http://localhost:3000/api/Mudi
 
 
 ### DELETE
-DELETE http://localhost:3000/api/Mudi
+DELETE http://localhost:3000/api/employees/444
 
 
 ### POST
-POST http://localhost:3000/api/Mudi
+POST http://localhost:3000/api/employees
 Content-Type: application/json
 
 {
-      "_id": 44444,
-      "first_name": "Mudi",
-      "Surname": "R"
+      "id": "444",
+      "firstName": "Mudi",
+      "lastName": "R"
 }
+
+
+### PATCH 
+PATCH http://localhost:3000/api/employees/444
+Content-Type: application/json
+
+{
+      "lastName": "Boris",
+      "id": "123"
+
+}
+

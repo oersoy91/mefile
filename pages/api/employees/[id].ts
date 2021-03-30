@@ -2,16 +2,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import {
   withDatabase,
-  readPerson,
-  deletePersonnel,
-  createNewPersonnel,
-} from "../../server/db";
+  readEmployee,
+  updateEmployee,
+  deleteEmployee,
+} from "../../../server/db";
 
 export default withDatabase(
   async (req: NextApiRequest, res: NextApiResponse) => {
-    const { employee } = req.query;
+    const { id } = req.query;
     if (req.method === "GET") {
-      const person = await readPerson(employee);
+      const person = await readEmployee(id);
       if (!person) {
         return res
           .status(404)
@@ -20,18 +20,17 @@ export default withDatabase(
       res.status(200).json(person);
     }
     if (req.method === "DELETE") {
-      await deletePersonnel(employee);
-      return res
-        .status(200)
-        .json({ status: 200, message: `${employee} deleted` });
+      await deleteEmployee(id);
+      return res.status(200).json({ status: 200, message: `${id} deleted` });
     }
 
-    if (req.method === "POST") {
-      await createNewPersonnel(req.body).then(() => {
-        res.status(200).json(req.body);
-      });
+    if (req.method === "PATCH") {
+      const updated = await updateEmployee(id, req.body);
+      if (!updated) {
+        return res.status(404).end();
+      }
+      return res.status(200).json({ status: 200, message: `${id} updated` });
     }
-
     return res.status(405).end();
   }
 );
