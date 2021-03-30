@@ -7,8 +7,8 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const EmployeeDetailsPage = () => {
   const router = useRouter();
-  const { employee } = router.query;
-  const { data, error } = useSWR(`/api/${employee}`, fetcher);
+  const { id } = router.query;
+  const { data, error } = useSWR(`/api/employees/${id}`, fetcher);
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
@@ -16,7 +16,7 @@ const EmployeeDetailsPage = () => {
   return (
     <div>
       <EmployeeDetails persons={data} />
-      <button onClick={() => deleteData(employee)}>Delete</button>
+      <button onClick={() => deleteData(id)}>Delete</button>
     </div>
   );
 };
