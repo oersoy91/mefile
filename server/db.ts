@@ -42,7 +42,7 @@ export function closeDB() {
 }
 
 export async function createNewPersonnel(personnel) {
-  const personnelCollection = await getCollection("test1111");
+  const personnelCollection = await getCollection("employeeList");
   return await personnelCollection.insertOne(personnel);
 }
 
@@ -55,7 +55,7 @@ export async function updatePersonnelDoc(
   personnelName,
   fieldsToUpdate: Partial<PersonnelDoc>
 ) {
-  const personnelCollection = await getCollection("test1111");
+  const personnelCollection = await getCollection("employeeList");
   const updateResult = await personnelCollection.updateOne(
     { name: personnelName },
     { $set: fieldsToUpdate }
@@ -77,9 +77,9 @@ export async function updatePersonnel(
 }
 
 export async function deletePersonnel(personnelName) {
-  const personnelCollection = await getCollection("test1111");
+  const personnelCollection = await getCollection("employeeList");
   const deleteResult = await personnelCollection.deleteOne({
-    name: personnelName,
+    first_name: personnelName,
   });
   return deleteResult.deletedCount >= 1;
 }

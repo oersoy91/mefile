@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import EmployeeDetails from "../../components/employeeDetails/employeeDetails";
+import { deleteData } from "../../utils/fetchData";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -15,6 +16,7 @@ const EmployeeDetailsPage = () => {
   return (
     <div>
       <EmployeeDetails persons={data} />
+      <button onClick={() => deleteData(employee)}>Delete</button>
     </div>
   );
 };
