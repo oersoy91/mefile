@@ -9,3 +9,18 @@ export const deleteData = async (employee) => {
   const data = await res.json();
   return data;
 };
+
+export const postData = async (employee, post) => {
+  const res = await fetch(`/api/${employee}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(post),
+  });
+
+  const data = await res.json();
+
+  return data;
+};
