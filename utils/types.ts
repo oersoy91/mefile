@@ -3,7 +3,6 @@ export type Person = {
   profileImg: string;
   firstName: string;
   lastName: string;
-  age: number;
   birthday: string;
   gender: string;
   adress: Adress;
@@ -13,6 +12,11 @@ export type Person = {
   endTrialPeriod: string;
   position: string;
   status: string;
+  equipment: string;
+  inventoryNumber: number;
+  serialNumber: string;
+  deliveryDate: number;
+  returnDate: number;
 };
 
 export type Adress = {

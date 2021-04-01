@@ -1,0 +1,83 @@
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.employeeDataContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: var(--secondary-bg-color);
+  border-radius: 4px;
+  margin: 3em auto 0.1em auto;
+  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  width: 25em;
+  border: 1px solid #e6e6e6;
+  color: var(--primary-text-color);
+  height: 100%;
+}
+
+.employeeDataContainer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.employeeDataContainer input {
+  margin-bottom: 1.8em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e6e6e6;
+  outline: none;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  margin-left: -1.5px;
+}
+
+.employeeDataContainer input::-webkit-outer-spin-button,
+.employeeDataContainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.employeeDataContainer select {
+  margin-bottom: 1.8em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e6e6e6;
+  outline: none;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  margin-left: -3px;
+  width: 50%;
+}
+
+.employeeDataContainer label {
+  color: var(--primary-text-color);
+  padding: 8px 0;
+}
+
+.mainHeader {
+  text-align: center;
+}
+
+.btn {
+  font-size: 1.2em;
+  padding: 0.5em 0.3em;
+  background: #5388b4;
+  color: var(--btn-color);
+  border-radius: 6px;
+  border: none;
+  outline-color: #2082d1;
+  margin: 0 0 1em 0;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0 0 0;
+}
