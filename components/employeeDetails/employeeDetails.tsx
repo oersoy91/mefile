@@ -10,9 +10,9 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
   const adress =
     persons.adress.street +
     " " +
-    persons.adress.house_number +
+    persons.adress.houseNumber +
     ", " +
-    persons.adress.zip_code +
+    persons.adress.zipCode +
     " " +
     persons.adress.city;
 
@@ -20,13 +20,13 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
     <>
       <div className={styles.headerContainer}>
         <img
-          src={persons.profile_picture}
-          alt={persons.first_name}
+          src={persons.profileImg}
+          alt={persons.firstName}
           className={styles.headerImg}
         />
         <div className={styles.headerNamePosition}>
           <h1 className={styles.headerName}>
-            {persons.first_name} {persons.last_name}
+            {persons.firstName} {persons.lastName}
           </h1>
           <p className={styles.headerPosition}>{persons.position}</p>
         </div>
@@ -52,9 +52,9 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
         <div className={styles.employeeDataContainer} id="baseData">
           <h2 className={styles.mainHeader}>Stammdaten</h2>
           <label htmlFor="name">Vorname</label>
-          <input type="text" value={persons.first_name} />
+          <input type="text" value={persons.firstName} />
           <label htmlFor="name">Nachname</label>
-          <input type="text" value={persons.last_name} />
+          <input type="text" value={persons.lastName} />
           <label htmlFor="name">Geburtsdatum</label>
           <input
             type="text"
@@ -72,7 +72,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <label htmlFor="name">Personal ID</label>
           <input type="text" value={persons.id} />
           <label htmlFor="name">Vertragsbeginn</label>
-          <input type="text" value={persons.last_name} />
+          <input type="text" value={persons.lastName} />
           <label htmlFor="name">Vertragsende</label>
           <input type="text" value={persons.birthday} />
           <label htmlFor="name">Ende der Probezeit</label>
@@ -87,7 +87,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <label htmlFor="name">Gerät</label>
           <input type="text" value={persons.id} />
           <label htmlFor="name">Inventurnummer</label>
-          <input type="text" value={persons.last_name} />
+          <input type="text" value={persons.lastName} />
           <label htmlFor="name">Seriennummer</label>
           <input type="text" value={persons.birthday} />
           <label htmlFor="name">Übergabedatum</label>

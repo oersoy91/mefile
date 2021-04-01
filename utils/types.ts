@@ -1,23 +1,23 @@
 export type Person = {
   id: string;
-  profile_picture: string;
-  first_name: string;
-  last_name: string;
+  profileImg: string;
+  firstName: string;
+  lastName: string;
   age: number;
   birthday: string;
   gender: string;
   adress: Adress;
   email: string;
-  start_contract: string;
-  end_contract: string;
-  end_trial_period: string;
+  startContract: string;
+  endContract: string;
+  endTrialPeriod: string;
   position: string;
   status: string;
 };
 
 export type Adress = {
   street: string;
-  house_number: number;
-  zip_code: number;
+  houseNumber: number;
+  zipCode: number;
   city: string;
 };

@@ -7,7 +7,7 @@ const newEmployeePage = () => {
 
   const sendData = (e) => {
     e.preventDefault();
-    postData({ first_name: name, id: id });
+    postData({ firstName: name, id: id });
   };
 
   return (
