@@ -28,8 +28,8 @@ export default function EmployeeListPage() {
 
   const filterPersons = employeeList.filter(
     (person) =>
-      person.first_name.toLowerCase().includes(keyword) ||
-      person.last_name.toLowerCase().includes(keyword)
+      person.firstName.toLowerCase().includes(keyword) ||
+      person.lastName.toLowerCase().includes(keyword)
   );
 
   return (

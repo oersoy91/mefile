@@ -33,11 +33,11 @@ const EmployeeList = ({ persons }: EmployeeListProps) => {
         <Link href={`/employee/${person.id}`} key={person.id}>
           <div className={styles.row}>
             <div className={styles.img}>
-              <img src={person.profile_picture} alt={person.first_name} />
+              <img src={person.profileImg} alt={person.firstName} />
             </div>
-            <div className={styles.firstname}>{person.first_name}</div>
+            <div className={styles.firstname}>{person.firstName}</div>
 
-            <div className={styles.lastname}>{person.last_name}</div>
+            <div className={styles.lastname}>{person.lastName}</div>
 
             <div className={styles.status}>{person.status}</div>
 
