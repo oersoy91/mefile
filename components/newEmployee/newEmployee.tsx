@@ -2,12 +2,14 @@ import { Person } from "../../utils/types";
 import styles from "./newEmployee.module.css";
 import { postData } from "../../utils/fetchData";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const NewEmployee = () => {
+  const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [birthday, setBirthday] = useState("");
@@ -29,9 +31,9 @@ const NewEmployee = () => {
   const [deliveryDate, setDeliveryDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
 
-  const sendData = (e) => {
+  const sendData = async (e) => {
     e.preventDefault();
-    postData({
+    await postData({
       firstName: firstName,
       lastName: lastName,
       birthday: new Date(birthday).toISOString(),
@@ -43,7 +45,7 @@ const NewEmployee = () => {
         city,
       },
       email: email,
-      id: parseInt(id),
+      id: id,
       startContract: new Date(startContract).toISOString(),
       endContract: new Date(endContract).toISOString(),
       endTrialPeriod: new Date(endTrialPeriod).toISOString(),
@@ -55,6 +57,7 @@ const NewEmployee = () => {
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
     });
+    router.push("/employees");
   };
 
   return (

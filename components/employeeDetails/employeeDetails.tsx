@@ -1,12 +1,14 @@
 import { deleteData } from "../../utils/fetchData";
 import { Person } from "../../utils/types";
 import styles from "./employeeDetails.module.css";
+import { useRouter } from "next/router";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
+  const router = useRouter();
   const adress =
     persons.adress.street +
     " " +
@@ -113,11 +115,18 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
       </div>
       <div className={styles.btnContainer}>
         <div>
-          <button className={styles.btnEdit}>Mitarbeiter bearbeiten</button>
+          <button
+            onClick={() => router.push("/employees")}
+            className={styles.btnEdit}
+          >
+            Mitarbeiter bearbeiten
+          </button>
         </div>
         <div>
           <button
-            onClick={() => deleteData(persons.id)}
+            onClick={() =>
+              deleteData(persons.id).then(() => router.push("/employees"))
+            }
             className={styles.btnDelete}
           >
             Mitarbeiter löschen
