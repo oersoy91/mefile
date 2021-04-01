@@ -1,4 +1,157 @@
-.container {
+.mainContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.employeeDataContainer {
   display: flex;
   flex-direction: column;
+  padding: 15px;
+  background-color: var(--secondary-bg-color);
+  border-radius: 4px;
+  margin: 3em auto 0.1em auto;
+  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  width: 25em;
+  border: 1px solid #e6e6e6;
+  color: var(--primary-text-color);
+}
+
+.employeeDataContainer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.employeeDataContainer input {
+  margin-bottom: 1.8em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #e6e6e6;
+  outline: none;
+  color: var(--primary-text-color);
+  font-size: 16px;
+  margin-left: -1.5px;
+}
+
+.employeeDataContainer label {
+  color: var(--primary-text-color);
+  padding: 8px 0;
+}
+
+.mainHeader {
+  text-align: center;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.headerNamePosition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headerImg {
+  border-radius: 50%;
+  margin-right: 50px;
+  width: 15vw;
+  height: 15vw;
+}
+
+.headerName {
+  margin-bottom: 0.2em;
+}
+.headerPosition {
+  margin-bottom: 0.2em;
+}
+
+.navContainer nav {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #248291;
+  color: white;
+  flex: wrap;
+}
+
+.navLink li {
+  display: inline-block;
+  padding: 0 3.5em;
+}
+
+.navLink li a {
+  color: white;
+  margin: 0 20px;
+  padding: 10px 0;
+  position: relative;
+  transition: 0.3s ease-out 0.1s;
+}
+
+.navLink li a::after {
+  height: 2px;
+  width: 100%;
+  background: white;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: scaleX(0);
+  transition: 0.3s;
+}
+
+.navLink li a:hover::after {
+  transform: scaleX(1);
+}
+
+.btnDelete {
+  font-size: 1.2em;
+  padding: 0.5em 0.3em;
+  background: #d66;
+  color: var(--btn-color);
+  border-radius: 6px;
+  border: none;
+  outline-color: #c70000;
+  margin: 0 0 2em 0;
+}
+
+.btnEdit {
+  font-size: 1.2em;
+  padding: 0.5em 0.3em;
+  background: #5388b4;
+  color: var(--btn-color);
+  border-radius: 6px;
+  border: none;
+  outline-color: #2082d1;
+  margin: 0 0 1em 0;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0 0 0;
+}
+
+@media (max-width: 400px) {
+  .headerImg {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 855px) {
+  .navLink li {
+    padding: 0 0.6em;
+  }
+}
+
+@media (max-width: 576px) {
+  .navContainer nav {
+    display: none;
+  }
 }
