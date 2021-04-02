@@ -1,12 +1,14 @@
 import { deleteData } from "../../utils/fetchData";
 import { Person } from "../../utils/types";
 import styles from "./employeeDetails.module.css";
+import { useRouter } from "next/router";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
+  const router = useRouter();
   const adress =
     persons.adress.street +
     " " +
@@ -72,37 +74,59 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <label htmlFor="name">Personal ID</label>
           <input type="text" value={persons.id} />
           <label htmlFor="name">Vertragsbeginn</label>
-          <input type="text" value={persons.lastName} />
+          <input
+            type="text"
+            value={new Date(persons.startContract).toLocaleDateString()}
+          />
           <label htmlFor="name">Vertragsende</label>
-          <input type="text" value={persons.birthday} />
+          <input
+            type="text"
+            value={new Date(persons.endContract).toLocaleDateString()}
+          />
           <label htmlFor="name">Ende der Probezeit</label>
-          <input type="text" value={persons.gender} />
+          <input
+            type="text"
+            value={new Date(persons.endTrialPeriod).toLocaleDateString()}
+          />
           <label htmlFor="name">Position</label>
-          <input type="text" value={adress} />
+          <input type="text" value={persons.position} />
           <label htmlFor="name">Status</label>
-          <input type="text" value={persons.email} />
+          <input type="text" value={persons.status} />
         </div>
         <div className={styles.employeeDataContainer} id="eqData">
           <h2 className={styles.mainHeader}>Geräteausleihe</h2>
           <label htmlFor="name">Gerät</label>
-          <input type="text" value={persons.id} />
+          <input type="text" value={persons.equipment} />
           <label htmlFor="name">Inventurnummer</label>
-          <input type="text" value={persons.lastName} />
+          <input type="text" value={persons.inventoryNumber} />
           <label htmlFor="name">Seriennummer</label>
-          <input type="text" value={persons.birthday} />
+          <input type="text" value={persons.serialNumber} />
           <label htmlFor="name">Übergabedatum</label>
-          <input type="text" value={persons.gender} />
+          <input
+            type="text"
+            value={new Date(persons.deliveryDate).toLocaleDateString()}
+          />
           <label htmlFor="name">Rückgabedatum</label>
-          <input type="text" value={adress} />
+          <input
+            type="text"
+            value={new Date(persons.returnDate).toLocaleDateString()}
+          />
         </div>
       </div>
       <div className={styles.btnContainer}>
         <div>
-          <button className={styles.btnEdit}>Mitarbeiter bearbeiten</button>
+          <button
+            onClick={() => router.push("/employees")}
+            className={styles.btnEdit}
+          >
+            Mitarbeiter bearbeiten
+          </button>
         </div>
         <div>
           <button
-            onClick={() => deleteData(persons.id)}
+            onClick={() =>
+              deleteData(persons.id).then(() => router.push("/employees"))
+            }
             className={styles.btnDelete}
           >
             Mitarbeiter löschen

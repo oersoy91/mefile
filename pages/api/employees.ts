@@ -4,15 +4,14 @@ import { withDatabase, employees, createNewEmployee } from "../../server/db";
 
 export default withDatabase(
   async (req: NextApiRequest, res: NextApiResponse) => {
-    const list = await employees("employeeList");
-    res.status(200).json(list);
-
     if (req.method === "POST") {
       await createNewEmployee(req.body).then(() => {
         res.status(200).json(req.body);
       });
+    } else {
+      const list = await employees("employeeList");
+      res.status(200).json(list);
     }
-
     return res.status(405).end();
   }
 );
