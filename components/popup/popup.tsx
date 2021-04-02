@@ -1,6 +1,7 @@
+import { PopupProps } from "../../utils/types";
 import styles from "./popup.module.css";
 
-function Popup(props) {
+function Popup(props: PopupProps) {
   return props.trigger ? (
     <div className={styles.popup}>
       <div className={styles.popupInner}>
@@ -14,7 +15,7 @@ function Popup(props) {
       </div>
     </div>
   ) : (
-    ""
+    <></>
   );
 }
 

@@ -3,6 +3,9 @@ import { Person } from "../../utils/types";
 import styles from "./employeeDetails.module.css";
 import { useRouter } from "next/router";
 import PopupSmall from "../popupSmall/popupSmall";
+import Popup from "../popup/popup";
+import EditEmployee from "../editEmployee/editEmployee";
+
 import { useState } from "react";
 
 export type EmployeeDetailProps = {
@@ -10,17 +13,18 @@ export type EmployeeDetailProps = {
 };
 
 const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [buttonPopupDelete, setButtonPopupDelete] = useState(false);
+  const [buttonPopupEdit, setButtonPopupEdit] = useState(false);
 
   const router = useRouter();
   const adress =
-    persons.adress.street +
+    persons.adress?.street +
     " " +
-    persons.adress.houseNumber +
+    persons.adress?.houseNumber +
     ", " +
-    persons.adress.zipCode +
+    persons.adress?.zipCode +
     " " +
-    persons.adress.city;
+    persons.adress?.city;
 
   return (
     <>
@@ -120,7 +124,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
       <div className={styles.btnContainer}>
         <div>
           <button
-            onClick={() => router.push("/employees")}
+            onClick={() => setButtonPopupEdit(true)}
             className={styles.btn}
           >
             Mitarbeiter bearbeiten
@@ -128,17 +132,20 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
         </div>
         <div>
           <button
-            onClick={() => setButtonPopup(true)}
+            onClick={() => setButtonPopupDelete(true)}
             className={styles.btnDelete}
           >
             Mitarbeiter löschen
           </button>
         </div>
       </div>
-      <PopupSmall trigger={buttonPopup} setTrigger={setButtonPopup}>
+      <PopupSmall trigger={buttonPopupDelete} setTrigger={setButtonPopupDelete}>
         <h3>Möchten Sie den Mitarbeiter wirklich aus dem System löschen?</h3>
         <div className={styles.popupContainer}>
-          <button onClick={() => setButtonPopup(false)} className={styles.btn}>
+          <button
+            onClick={() => setButtonPopupDelete(false)}
+            className={styles.btn}
+          >
             Abbrechen
           </button>
           <button
@@ -151,6 +158,9 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           </button>
         </div>
       </PopupSmall>
+      <Popup trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}>
+        <EditEmployee persons={persons} />
+      </Popup>
     </>
   );
 };

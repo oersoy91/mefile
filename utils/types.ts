@@ -3,7 +3,7 @@ export type Person = {
   profileImg: string;
   firstName: string;
   lastName: string;
-  birthday: string;
+  birthday: Date;
   gender: string;
   adress: Adress;
   email: string;
@@ -24,4 +24,10 @@ export type Adress = {
   houseNumber: number;
   zipCode: number;
   city: string;
+};
+
+export type PopupProps = {
+  trigger: boolean;
+  setTrigger: (boolean) => void;
+  children: any;
 };
