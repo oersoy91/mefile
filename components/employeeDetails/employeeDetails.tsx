@@ -22,7 +22,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
     <>
       <div className={styles.headerContainer}>
         <img
-          src={persons.profileImg}
+          src={persons.profileImg ? persons.profileImg : `/img/profileImg.png`}
           alt={persons.firstName}
           className={styles.headerImg}
         />
