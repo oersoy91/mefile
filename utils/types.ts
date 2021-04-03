@@ -7,16 +7,16 @@ export type Person = {
   gender: string;
   adress: Adress;
   email: string;
-  startContract: string;
-  endContract: string;
-  endTrialPeriod: string;
+  startContract: Date;
+  endContract: Date;
+  endTrialPeriod: Date;
   position: string;
   status: string;
   equipment: string;
   inventoryNumber: number;
   serialNumber: string;
-  deliveryDate: number;
-  returnDate: number;
+  deliveryDate: Date;
+  returnDate: Date;
 };
 
 export type Adress = {
@@ -29,5 +29,5 @@ export type Adress = {
 export type PopupProps = {
   trigger: boolean;
   setTrigger: (boolean) => void;
-  children: any;
+  children: unknown;
 };

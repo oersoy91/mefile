@@ -89,7 +89,7 @@ const NewEmployee = () => {
               onChange={(e) => setBirthday(e.target.value)}
               id="birthday"
               name="birthday"
-              type="date"
+              type="text"
               required
               value={birthday}
             />
@@ -170,7 +170,7 @@ const NewEmployee = () => {
               onChange={(e) => setStartContract(e.target.value)}
               id="startContract"
               name="startContract"
-              type="date"
+              type="text"
               required
               value={startContract}
             />
@@ -180,7 +180,7 @@ const NewEmployee = () => {
               onChange={(e) => setEndContract(e.target.value)}
               id="endContract"
               name="endContract"
-              type="date"
+              type="text"
               required
               value={endContract}
             />
@@ -190,7 +190,7 @@ const NewEmployee = () => {
               onChange={(e) => setEndTrialPeriod(e.target.value)}
               id="endTrialPeriod"
               name="endTrialPeriod"
-              type="date"
+              type="text"
               required
               value={endTrialPeriod}
             />
@@ -261,7 +261,7 @@ const NewEmployee = () => {
               onChange={(e) => setDeliveryDate(e.target.value)}
               id="deliveryDate"
               name="deliveryDate"
-              type="date"
+              type="text"
               required
               value={deliveryDate}
             />
@@ -270,7 +270,7 @@ const NewEmployee = () => {
               onChange={(e) => setReturnDate(e.target.value)}
               id="returnDate"
               name="returnDate"
-              type="date"
+              type="text"
               required
               value={returnDate}
             />
