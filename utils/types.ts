@@ -3,25 +3,31 @@ export type Person = {
   profileImg: string;
   firstName: string;
   lastName: string;
-  birthday: string;
+  birthday: Date;
   gender: string;
   adress: Adress;
   email: string;
-  startContract: string;
-  endContract: string;
-  endTrialPeriod: string;
+  startContract: Date;
+  endContract: Date;
+  endTrialPeriod: Date;
   position: string;
   status: string;
   equipment: string;
-  inventoryNumber: number;
+  inventoryNumber: string;
   serialNumber: string;
-  deliveryDate: number;
-  returnDate: number;
+  deliveryDate: Date;
+  returnDate: Date;
 };
 
 export type Adress = {
   street: string;
-  houseNumber: number;
-  zipCode: number;
+  houseNumber: string;
+  zipCode: string;
   city: string;
+};
+
+export type PopupProps = {
+  trigger: boolean;
+  setTrigger: (boolean) => void;
+  children: unknown;
 };

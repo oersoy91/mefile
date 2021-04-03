@@ -33,7 +33,12 @@ const EmployeeList = ({ persons }: EmployeeListProps) => {
         <Link href={`/employee/${person.id}`} key={person.id}>
           <div className={styles.row}>
             <div className={styles.img}>
-              <img src={person.profileImg} alt={person.firstName} />
+              <img
+                src={
+                  person.profileImg ? person.profileImg : `/img/profileImg.png`
+                }
+                alt={person.firstName}
+              />
             </div>
             <div className={styles.firstname}>{person.firstName}</div>
 

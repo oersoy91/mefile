@@ -1,7 +1,7 @@
 import { PopupProps } from "../../utils/types";
-import styles from "./popup.module.css";
+import styles from "./popupSmall.module.css";
 
-function Popup(props: PopupProps) {
+function PopupSmall(props: PopupProps) {
   return props.trigger ? (
     <div className={styles.popup}>
       <div className={styles.popupInner}>
@@ -19,4 +19,4 @@ function Popup(props: PopupProps) {
   );
 }
 
-export default Popup;
+export default PopupSmall;

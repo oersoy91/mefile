@@ -2,27 +2,35 @@ import { deleteData } from "../../utils/fetchData";
 import { Person } from "../../utils/types";
 import styles from "./employeeDetails.module.css";
 import { useRouter } from "next/router";
+import PopupSmall from "../popupSmall/popupSmall";
+import Popup from "../popup/popup";
+import EditEmployee from "../editEmployee/editEmployee";
+
+import { useState } from "react";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
+  const [buttonPopupDelete, setButtonPopupDelete] = useState(false);
+  const [buttonPopupEdit, setButtonPopupEdit] = useState(false);
+
   const router = useRouter();
   const adress =
-    persons.adress.street +
+    persons.adress?.street +
     " " +
-    persons.adress.houseNumber +
+    persons.adress?.houseNumber +
     ", " +
-    persons.adress.zipCode +
+    persons.adress?.zipCode +
     " " +
-    persons.adress.city;
+    persons.adress?.city;
 
   return (
     <>
       <div className={styles.headerContainer}>
         <img
-          src={persons.profileImg}
+          src={persons.profileImg ? persons.profileImg : `/img/profileImg.png`}
           alt={persons.firstName}
           className={styles.headerImg}
         />
@@ -116,23 +124,43 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
       <div className={styles.btnContainer}>
         <div>
           <button
-            onClick={() => router.push("/employees")}
-            className={styles.btnEdit}
+            onClick={() => setButtonPopupEdit(true)}
+            className={styles.btn}
           >
             Mitarbeiter bearbeiten
           </button>
         </div>
         <div>
           <button
-            onClick={() =>
-              deleteData(persons.id).then(() => router.push("/employees"))
-            }
+            onClick={() => setButtonPopupDelete(true)}
             className={styles.btnDelete}
           >
             Mitarbeiter löschen
           </button>
         </div>
       </div>
+      <PopupSmall trigger={buttonPopupDelete} setTrigger={setButtonPopupDelete}>
+        <h3>Möchten Sie den Mitarbeiter wirklich aus dem System löschen?</h3>
+        <div className={styles.popupContainer}>
+          <button
+            onClick={() => setButtonPopupDelete(false)}
+            className={styles.btn}
+          >
+            Abbrechen
+          </button>
+          <button
+            onClick={() =>
+              deleteData(persons.id).then(() => router.push("/employees"))
+            }
+            className={styles.btnDelete}
+          >
+            Löschen
+          </button>
+        </div>
+      </PopupSmall>
+      <Popup trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}>
+        <EditEmployee persons={persons} />
+      </Popup>
     </>
   );
 };

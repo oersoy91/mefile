@@ -1,6 +1,6 @@
 import { Person } from "../../utils/types";
-import styles from "./newEmployee.module.css";
-import { postData } from "../../utils/fetchData";
+import styles from "./editEmployee.module.css";
+import { patchData } from "../../utils/fetchData";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -8,32 +8,44 @@ export type EmployeeDetailProps = {
   persons: Person;
 };
 
-const NewEmployee = () => {
+const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   const router = useRouter();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [gender, setGender] = useState("");
-  const [street, setStreet] = useState("");
-  const [houseNumber, setHouseNumber] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [city, setCity] = useState("");
-  const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
-  const [startContract, setStartContract] = useState("");
-  const [endContract, setEndContract] = useState("");
-  const [endTrialPeriod, setEndTrialPeriod] = useState("");
-  const [position, setPosition] = useState("");
-  const [status, setStatus] = useState("");
-  const [eq, setEq] = useState("");
-  const [inNumber, setInNumber] = useState("");
-  const [serialNumber, setSerialNumber] = useState("");
-  const [deliveryDate, setDeliveryDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
+  const [firstName, setFirstName] = useState(persons.firstName);
+  const [lastName, setLastName] = useState(persons.lastName);
+  const [birthday, setBirthday] = useState(
+    new Date(persons.birthday).toLocaleDateString()
+  );
+  const [gender, setGender] = useState(persons.gender);
+  const [street, setStreet] = useState(persons.adress.street);
+  const [houseNumber, setHouseNumber] = useState(persons.adress.houseNumber);
+  const [zipCode, setZipCode] = useState(persons.adress.zipCode);
+  const [city, setCity] = useState(persons.adress.city);
+  const [email, setEmail] = useState(persons.email);
+  const [id, setId] = useState(persons.id);
+  const [startContract, setStartContract] = useState(
+    new Date(persons.startContract).toLocaleDateString()
+  );
+  const [endContract, setEndContract] = useState(
+    new Date(persons.endContract).toLocaleDateString()
+  );
+  const [endTrialPeriod, setEndTrialPeriod] = useState(
+    new Date(persons.endTrialPeriod).toLocaleDateString()
+  );
+  const [position, setPosition] = useState(persons.position);
+  const [status, setStatus] = useState(persons.status);
+  const [eq, setEq] = useState(persons.equipment);
+  const [inNumber, setInNumber] = useState(persons.inventoryNumber);
+  const [serialNumber, setSerialNumber] = useState(persons.serialNumber);
+  const [deliveryDate, setDeliveryDate] = useState(
+    new Date(persons.deliveryDate).toLocaleDateString()
+  );
+  const [returnDate, setReturnDate] = useState(
+    new Date(persons.returnDate).toLocaleDateString()
+  );
 
   const sendData = async (e) => {
     e.preventDefault();
-    await postData({
+    await patchData(id, {
       firstName: firstName,
       lastName: lastName,
       birthday: new Date(birthday).toISOString(),
@@ -57,7 +69,7 @@ const NewEmployee = () => {
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
     });
-    router.push(`/employee/${id}`);
+    router.push(`/employees`);
   };
 
   return (
@@ -286,4 +298,4 @@ const NewEmployee = () => {
   );
 };
 
-export default NewEmployee;
+export default EditEmployee;
