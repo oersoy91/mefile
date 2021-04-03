@@ -13,7 +13,7 @@ export type Person = {
   position: string;
   status: string;
   equipment: string;
-  inventoryNumber: number;
+  inventoryNumber: string;
   serialNumber: string;
   deliveryDate: Date;
   returnDate: Date;
@@ -21,8 +21,8 @@ export type Person = {
 
 export type Adress = {
   street: string;
-  houseNumber: number;
-  zipCode: number;
+  houseNumber: string;
+  zipCode: string;
   city: string;
 };
 
