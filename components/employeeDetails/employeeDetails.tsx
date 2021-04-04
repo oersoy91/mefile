@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import PopupSmall from "../popupSmall/popupSmall";
 import Popup from "../popup/popup";
 import EditEmployee from "../editEmployee/editEmployee";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 
@@ -13,6 +15,15 @@ export type EmployeeDetailProps = {
 };
 
 const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
+  const notify = async () =>
+    await toast.error("Mitarbeiter wird gelöscht!", {
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      transition: Zoom,
+    });
   const [buttonPopupDelete, setButtonPopupDelete] = useState(false);
   const [buttonPopupEdit, setButtonPopupEdit] = useState(false);
 
@@ -150,7 +161,9 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           </button>
           <button
             onClick={() =>
-              deleteData(persons.id).then(() => router.push("/employees"))
+              notify()
+                .then(() => deleteData(persons.id))
+                .then(() => setTimeout(() => router.push("/employees"), 3000))
             }
             className={styles.btnDelete}
           >
@@ -161,6 +174,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
       <Popup trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}>
         <EditEmployee persons={persons} />
       </Popup>
+      <ToastContainer />
     </>
   );
 };
