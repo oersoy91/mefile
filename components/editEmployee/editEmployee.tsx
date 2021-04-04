@@ -3,12 +3,23 @@ import styles from "./editEmployee.module.css";
 import { patchData } from "../../utils/fetchData";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const EditEmployee = ({ persons }: EmployeeDetailProps) => {
+  const notify = () =>
+    toast.info("Mitarbeiter wird aktualisiert!", {
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      transition: Zoom,
+    });
   const router = useRouter();
   const [firstName, setFirstName] = useState(persons.firstName);
   const [lastName, setLastName] = useState(persons.lastName);
@@ -69,7 +80,8 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
     });
-    router.push(`/employees`);
+    notify();
+    setTimeout(() => router.reload(), 3000);
   };
 
   return (
@@ -294,6 +306,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 };

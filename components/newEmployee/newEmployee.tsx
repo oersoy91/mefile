@@ -3,12 +3,23 @@ import styles from "./newEmployee.module.css";
 import { postData } from "../../utils/fetchData";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export type EmployeeDetailProps = {
   persons: Person;
 };
 
 const NewEmployee = () => {
+  const notify = () =>
+    toast.info("Mitarbeiter wird erstellt!", {
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+      transition: Zoom,
+    });
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -57,7 +68,8 @@ const NewEmployee = () => {
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
     });
-    router.push(`/employee/${id}`);
+    notify();
+    setTimeout(() => router.push(`/employee/${id}`), 2000);
   };
 
   return (
@@ -282,6 +294,7 @@ const NewEmployee = () => {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 };
