@@ -141,3 +141,32 @@ export async function readCurrentBirthday() {
     ])
     .toArray();
 }
+
+export async function readEndContract() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          endContract: 1,
+        },
+      },
+      {
+        $match: {
+          endContract: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
