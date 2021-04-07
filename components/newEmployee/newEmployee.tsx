@@ -33,7 +33,6 @@ const NewEmployee = () => {
   const [id, setId] = useState("");
   const [startContract, setStartContract] = useState("");
   const [endContract, setEndContract] = useState("");
-  const [endTrialPeriod, setEndTrialPeriod] = useState("");
   const [position, setPosition] = useState("");
   const [status, setStatus] = useState("");
   const [eq, setEq] = useState("");
@@ -43,6 +42,9 @@ const NewEmployee = () => {
   const [returnDate, setReturnDate] = useState("");
 
   const sendData = async (e) => {
+    const endTrialPeriod = new Date(startContract);
+    endTrialPeriod.setDate(endTrialPeriod.getDate() + 90);
+
     e.preventDefault();
     await postData({
       firstName: firstName,
@@ -101,7 +103,7 @@ const NewEmployee = () => {
               onChange={(e) => setBirthday(e.target.value)}
               id="birthday"
               name="birthday"
-              type="text"
+              type="date"
               required
               value={birthday}
             />
@@ -182,7 +184,7 @@ const NewEmployee = () => {
               onChange={(e) => setStartContract(e.target.value)}
               id="startContract"
               name="startContract"
-              type="text"
+              type="date"
               required
               value={startContract}
             />
@@ -192,19 +194,9 @@ const NewEmployee = () => {
               onChange={(e) => setEndContract(e.target.value)}
               id="endContract"
               name="endContract"
-              type="text"
+              type="date"
               required
               value={endContract}
-            />
-
-            <label htmlFor="endTrialPeriod">Ende der Probezeit</label>
-            <input
-              onChange={(e) => setEndTrialPeriod(e.target.value)}
-              id="endTrialPeriod"
-              name="endTrialPeriod"
-              type="text"
-              required
-              value={endTrialPeriod}
             />
 
             <label htmlFor="position">Position</label>
@@ -273,7 +265,7 @@ const NewEmployee = () => {
               onChange={(e) => setDeliveryDate(e.target.value)}
               id="deliveryDate"
               name="deliveryDate"
-              type="text"
+              type="date"
               required
               value={deliveryDate}
             />
@@ -282,7 +274,7 @@ const NewEmployee = () => {
               onChange={(e) => setReturnDate(e.target.value)}
               id="returnDate"
               name="returnDate"
-              type="text"
+              type="date"
               required
               value={returnDate}
             />

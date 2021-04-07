@@ -20,8 +20,14 @@ export default function EndTrialPeriodList() {
       <div className={styles.container}>
         <h2 className={styles.header}>Probezeiten</h2>
         <p className={styles.subhead}>
-          Probezeiten die in den nächsten 30 Tagen auslaufen
+          Probezeit von Mitarbeitern die in den nächsten 30 Tagen auslaufen
         </p>
+        <div className={styles.notification}>
+          <div>
+            Keine Mitarbeiter deren Probezeit in den nächsten 30 Tagen ausläuft
+          </div>
+        </div>
+
         <div className={styles.row}>
           <div>Personal-ID</div>
 

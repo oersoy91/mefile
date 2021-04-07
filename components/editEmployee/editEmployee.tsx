@@ -39,9 +39,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   const [endContract, setEndContract] = useState(
     new Date(persons.endContract).toLocaleDateString()
   );
-  const [endTrialPeriod, setEndTrialPeriod] = useState(
-    new Date(persons.endTrialPeriod).toLocaleDateString()
-  );
+
   const [position, setPosition] = useState(persons.position);
   const [status, setStatus] = useState(persons.status);
   const [eq, setEq] = useState(persons.equipment);
@@ -55,6 +53,9 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   );
 
   const sendData = async (e) => {
+    const endTrialPeriod = new Date(startContract);
+    endTrialPeriod.setDate(endTrialPeriod.getDate() + 90);
+
     e.preventDefault();
     await patchData(id, {
       firstName: firstName,
@@ -207,16 +208,6 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               type="text"
               required
               value={endContract}
-            />
-
-            <label htmlFor="endTrialPeriod">Ende der Probezeit</label>
-            <input
-              onChange={(e) => setEndTrialPeriod(e.target.value)}
-              id="endTrialPeriod"
-              name="endTrialPeriod"
-              type="text"
-              required
-              value={endTrialPeriod}
             />
 
             <label htmlFor="position">Position</label>

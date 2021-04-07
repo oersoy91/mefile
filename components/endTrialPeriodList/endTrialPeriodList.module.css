@@ -31,6 +31,15 @@
   border: solid rgb(236, 236, 236);
 }
 
+.notification {
+  padding: 1em;
+  background-color: #f9f9f9;
+  border-radius: 9px;
+  box-shadow: var(--box-shadow);
+  border: solid rgb(248, 204, 204);
+  text-align: center;
+}
+
 .list {
   display: grid;
   border: solid rgb(236, 236, 236);
