@@ -23,13 +23,13 @@ export default function EndContractList() {
           Auslaufende Verträge der nächsten 30 Tage
         </p>
         <div className={styles.row}>
-          <div className={styles.firstname}>Personal-ID</div>
+          <div>Personal-ID</div>
 
-          <div className={styles.lastname}>Vorname</div>
+          <div>Vorname</div>
 
-          <div className={styles.status}>Nachname</div>
+          <div>Nachname</div>
 
-          <div className={styles.position}>Vertragsende</div>
+          <div>Vertragsende</div>
         </div>
 
         {data.map((employee) => (

@@ -23,7 +23,8 @@ export default function EmployeeAmount() {
   return (
     <div>
       <div className={styles.container}>
-        <h2 className={styles.header}>Mitarbeiterzahl</h2>
+        <h2 className={styles.header}>Mitarbeiter</h2>
+        <p className={styles.subhead}>Anzahl der Mitarbeiter nach Geschlecht</p>
         <div className={styles.genderContainer}>
           <div className={styles.genderAmountContainer}>
             <p className={styles.amount}>{total}</p>

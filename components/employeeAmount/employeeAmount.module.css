@@ -12,6 +12,7 @@
   text-align: center;
   padding: 1em;
   margin: 0;
+  padding-bottom: 0;
 }
 
 .genderAmountContainer {
@@ -36,4 +37,9 @@
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 1em;
+}
+
+.subhead {
+  text-align: center;
+  margin-top: 0;
 }

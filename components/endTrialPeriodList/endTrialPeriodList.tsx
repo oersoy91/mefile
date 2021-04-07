@@ -1,11 +1,11 @@
-import styles from "./birthdayList.module.css";
+import styles from "./endTrialPeriodList.module.css";
 import LoadingSpinner from "../loadingSpinner/loadingSpinner";
 import useSWR from "swr";
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function BirthdayList() {
-  const { data, error } = useSWR("/api/birthdayList", fetcher);
+export default function EndTrialPeriodList() {
+  const { data, error } = useSWR("/api/endTrialPeriodList", fetcher);
 
   if (error) return <div>failed to load</div>;
   if (!data)
@@ -18,8 +18,10 @@ export default function BirthdayList() {
   return (
     <div>
       <div className={styles.container}>
-        <h2 className={styles.header}>Geburtstage</h2>
-        <p className={styles.subhead}>Geburtstage der nächsten 30 Tage</p>
+        <h2 className={styles.header}>Probezeiten</h2>
+        <p className={styles.subhead}>
+          Probezeiten die in den nächsten 30 Tagen auslaufen
+        </p>
         <div className={styles.row}>
           <div>Personal-ID</div>
 
@@ -27,7 +29,7 @@ export default function BirthdayList() {
 
           <div>Nachname</div>
 
-          <div>Geburtsdatum</div>
+          <div>Ende der Probezeit</div>
         </div>
 
         {data.map((employee) => (
@@ -35,7 +37,7 @@ export default function BirthdayList() {
             <div>{employee.id}</div>
             <div>{employee.firstName}</div>
             <div>{employee.lastName}</div>
-            <div>{new Date(employee.birthday).toLocaleDateString()}</div>
+            <div>{new Date(employee.endTrialPeriod).toLocaleDateString()}</div>
           </div>
         ))}
       </div>
