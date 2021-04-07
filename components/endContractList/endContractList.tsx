@@ -22,24 +22,35 @@ export default function EndContractList() {
         <p className={styles.subhead}>
           Auslaufende Verträge der nächsten 30 Tage
         </p>
-        <div className={styles.row}>
-          <div>Personal-ID</div>
 
-          <div>Vorname</div>
+        {data.length === 0 ? (
+          <>
+            <div className={styles.notification}>
+              <div>Keine auslaufenden Verträge in den nächsten 30 Tagen</div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className={styles.row}>
+              <div>Personal-ID</div>
 
-          <div>Nachname</div>
+              <div>Vorname</div>
 
-          <div>Vertragsende</div>
-        </div>
+              <div>Nachname</div>
 
-        {data.map((employee) => (
-          <div className={styles.list} key={employee.id}>
-            <div>{employee.id}</div>
-            <div>{employee.firstName}</div>
-            <div>{employee.lastName}</div>
-            <div>{new Date(employee.endContract).toLocaleDateString()}</div>
-          </div>
-        ))}
+              <div>Vertragsende</div>
+            </div>
+
+            {data.map((employee) => (
+              <div className={styles.list} key={employee.id}>
+                <div>{employee.id}</div>
+                <div>{employee.firstName}</div>
+                <div>{employee.lastName}</div>
+                <div>{new Date(employee.endContract).toLocaleDateString()}</div>
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

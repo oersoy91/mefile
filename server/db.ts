@@ -106,8 +106,8 @@ export async function readGenderAmount() {
 // }
 
 export async function readCurrentBirthday() {
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 0);
+  const now: any = new Date();
+  const start: any = new Date(now.getFullYear(), 0, 0);
   const diff =
     now -
     start +
@@ -191,6 +191,35 @@ export async function readEndTrialPeriod() {
       {
         $match: {
           endTrialPeriod: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
+
+export async function readEquipmentReturnDate() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          returnDate: 1,
+        },
+      },
+      {
+        $match: {
+          returnDate: {
             $gte: startDate,
             $lte: endDate,
           },
