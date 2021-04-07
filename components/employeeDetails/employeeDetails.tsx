@@ -37,6 +37,17 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
     " " +
     persons.adress?.city;
 
+  function getAge(dateString) {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   return (
     <>
       <div className={styles.headerContainer}>
@@ -72,60 +83,62 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
       <div className={styles.mainContainer}>
         <div className={styles.employeeDataContainer} id="baseData">
           <h2 className={styles.mainHeader}>Stammdaten</h2>
-          <label htmlFor="name">Vorname</label>
+          <label htmlFor="firstName">Vorname</label>
           <input type="text" value={persons.firstName} />
-          <label htmlFor="name">Nachname</label>
+          <label htmlFor="lastName">Nachname</label>
           <input type="text" value={persons.lastName} />
-          <label htmlFor="name">Geburtsdatum</label>
+          <label htmlFor="birthday">Geburtsdatum</label>
           <input
             type="text"
             value={new Date(persons.birthday).toLocaleDateString()}
           />
-          <label htmlFor="name">Geschlecht</label>
+          <label htmlFor="age">Alter</label>
+          <input type="text" value={getAge(persons.birthday)} />
+          <label htmlFor="gender">Geschlecht</label>
           <input type="text" value={persons.gender} />
-          <label htmlFor="name">Adresse</label>
+          <label htmlFor="adress">Adresse</label>
           <input type="text" value={adress} />
-          <label htmlFor="name">E-Mail</label>
+          <label htmlFor="email">E-Mail</label>
           <input type="text" value={persons.email} />
         </div>
         <div className={styles.employeeDataContainer} id="personData">
           <h2 className={styles.mainHeader}>Personalinformation</h2>
-          <label htmlFor="name">Personal ID</label>
+          <label htmlFor="id">Personal ID</label>
           <input type="text" value={persons.id} />
-          <label htmlFor="name">Vertragsbeginn</label>
+          <label htmlFor="startContract">Vertragsbeginn</label>
           <input
             type="text"
             value={new Date(persons.startContract).toLocaleDateString()}
           />
-          <label htmlFor="name">Vertragsende</label>
+          <label htmlFor="endContract">Vertragsende</label>
           <input
             type="text"
             value={new Date(persons.endContract).toLocaleDateString()}
           />
-          <label htmlFor="name">Ende der Probezeit</label>
+          <label htmlFor="endTrialPeriod">Ende der Probezeit</label>
           <input
             type="text"
             value={new Date(persons.endTrialPeriod).toLocaleDateString()}
           />
-          <label htmlFor="name">Position</label>
+          <label htmlFor="position">Position</label>
           <input type="text" value={persons.position} />
-          <label htmlFor="name">Status</label>
+          <label htmlFor="status">Status</label>
           <input type="text" value={persons.status} />
         </div>
         <div className={styles.employeeDataContainer} id="eqData">
           <h2 className={styles.mainHeader}>Geräteausleihe</h2>
-          <label htmlFor="name">Gerät</label>
+          <label htmlFor="eq">Gerät</label>
           <input type="text" value={persons.equipment} />
-          <label htmlFor="name">Inventurnummer</label>
+          <label htmlFor="inNumer">Inventurnummer</label>
           <input type="text" value={persons.inventoryNumber} />
-          <label htmlFor="name">Seriennummer</label>
+          <label htmlFor="serialNumber">Seriennummer</label>
           <input type="text" value={persons.serialNumber} />
-          <label htmlFor="name">Übergabedatum</label>
+          <label htmlFor="deliveryDate">Übergabedatum</label>
           <input
             type="text"
             value={new Date(persons.deliveryDate).toLocaleDateString()}
           />
-          <label htmlFor="name">Rückgabedatum</label>
+          <label htmlFor="returnlDate">Rückgabedatum</label>
           <input
             type="text"
             value={new Date(persons.returnDate).toLocaleDateString()}

@@ -67,3 +67,40 @@ export async function deleteEmployee(id) {
   });
   return deleteResult.deletedCount >= 1;
 }
+
+export async function readGenderAmount() {
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          männlich: { $cond: [{ $eq: ["$gender", "männlich"] }, 1, 0] },
+          weiblich: { $cond: [{ $eq: ["$gender", "weiblich"] }, 1, 0] },
+          diverse: { $cond: [{ $eq: ["$gender", "diverse"] }, 1, 0] },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          männlich: { $sum: "$männlich" },
+          weiblich: { $sum: "$weiblich" },
+          diverse: { $sum: "$diverse" },
+
+          total: { $sum: 1 },
+        },
+      },
+    ])
+    .toArray();
+}
+
+// export async function readGenderAmount() {
+//   const employeeCollection = await getCollection("employeeList");
+
+//   const femaleAmount = await employeeCollection
+//     .find({ gender: "weiblich" })
+//     .count();
+//   const maleAmount = await employeeCollection
+//     .find({ gender: "männlich" })
+//     .count();
+//   return { male: maleAmount, female: femaleAmount };
+// }
