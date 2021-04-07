@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import MyApp from "../components/calendar/calendar";
+import Cal from "../components/calendar/calendar";
+import Charts from "../components/charts/charts";
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <MyApp />
+        <Cal />
+        <Charts />
       </main>
     </div>
   );
