@@ -39,7 +39,7 @@ export default function Charts() {
         ]}
         options={{
           title: "Anzahl der Mitarbeiter nach Geschlecht",
-          backgroundColor: "#f9f9f9",
+          backgroundColor: "var(--secondary-bg-color)",
           legend: { position: "bottom" },
           chartArea: { width: "100%", height: "80%" },
           theme: "maximized",

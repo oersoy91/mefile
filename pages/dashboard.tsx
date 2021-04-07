@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Cal from "../components/calendar/calendar";
 import Charts from "../components/charts/charts";
+import EmployeeAmount from "../components/employeeAmount/employeeAmount";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Cal />
-        <Charts />
+        <EmployeeAmount />
       </main>
     </div>
   );
