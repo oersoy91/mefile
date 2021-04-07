@@ -104,3 +104,40 @@ export async function readGenderAmount() {
 //     .count();
 //   return { male: maleAmount, female: femaleAmount };
 // }
+
+export async function readCurrentBirthday() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff =
+    now -
+    start +
+    (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const day = Math.floor(diff / oneDay);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          birthday: 1,
+          dayOfYear: {
+            $dayOfYear: "$birthday",
+          },
+        },
+      },
+      {
+        $match: {
+          dayOfYear: {
+            $gte: day,
+            $lte: day + 30,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
