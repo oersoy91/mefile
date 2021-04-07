@@ -1,6 +1,20 @@
 import styles from "./birthdayList.module.css";
+import LoadingSpinner from "../loadingSpinner/loadingSpinner";
+import useSWR from "swr";
 
-export default function BirthdayList() {
+export const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function Charts() {
+  const { data, error } = useSWR("/api/birthdayList", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (!data)
+    return (
+      <div className={styles.spinnerContainer}>
+        <LoadingSpinner />
+      </div>
+    );
+
   return (
     <div>
       <div className={styles.container}>
@@ -16,24 +30,14 @@ export default function BirthdayList() {
           <div className={styles.position}>Geburtsdatum</div>
         </div>
 
-        <div className={styles.list}>
-          <div>001</div>
-
-          <div>Osman</div>
-
-          <div>Ersoy</div>
-
-          <div>31.05.1991</div>
-        </div>
-        <div className={styles.list}>
-          <div>001</div>
-
-          <div>Osman</div>
-
-          <div>Ersoy</div>
-
-          <div>31.05.1991</div>
-        </div>
+        {data.map((employee) => (
+          <div className={styles.list} key={employee.id}>
+            <div>{employee.id}</div>
+            <div>{employee.firstName}</div>
+            <div>{employee.lastName}</div>
+            <div>{new Date(employee.birthday).toLocaleDateString()}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

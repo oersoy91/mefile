@@ -42,3 +42,7 @@
   border-radius: 9px;
   box-shadow: var(--box-shadow);
 }
+
+.spinnerContainer {
+  display: flex;
+}
