@@ -1,0 +1,45 @@
+.container {
+  color: var(--primary-text-color);
+  background-color: var(--secondary-bg-color);
+  border-radius: 7px;
+  box-shadow: var(--box-shadow);
+  font-weight: 500;
+  width: 500px;
+  margin: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 1em;
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.genderAmountContainer {
+  border: 1px solid #d6d2d2;
+  border-radius: 7px;
+  width: 5em;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.amount {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.genderAmountContainer p {
+  margin: 0 0 0 0;
+}
+
+.genderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 1em;
+}
+
+.subhead {
+  text-align: center;
+  margin-top: 0;
+}

@@ -67,3 +67,152 @@ export async function deleteEmployee(id) {
   });
   return deleteResult.deletedCount >= 1;
 }
+
+export async function readGenderAmount() {
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          männlich: { $cond: [{ $eq: ["$gender", "männlich"] }, 1, 0] },
+          weiblich: { $cond: [{ $eq: ["$gender", "weiblich"] }, 1, 0] },
+          diverse: { $cond: [{ $eq: ["$gender", "diverse"] }, 1, 0] },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          männlich: { $sum: "$männlich" },
+          weiblich: { $sum: "$weiblich" },
+          diverse: { $sum: "$diverse" },
+
+          total: { $sum: 1 },
+        },
+      },
+    ])
+    .toArray();
+}
+
+export async function readCurrentBirthday() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff =
+    +now -
+    +start +
+    (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000;
+  const oneDay = 1000 * 60 * 60 * 24;
+  const day = Math.floor(diff / oneDay);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          birthday: 1,
+          dayOfYear: {
+            $dayOfYear: "$birthday",
+          },
+        },
+      },
+      {
+        $match: {
+          dayOfYear: {
+            $gte: day,
+            $lte: day + 30,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
+
+export async function readEndContract() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          endContract: 1,
+        },
+      },
+      {
+        $match: {
+          endContract: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
+
+export async function readEndTrialPeriod() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          endTrialPeriod: 1,
+        },
+      },
+      {
+        $match: {
+          endTrialPeriod: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
+
+export async function readEquipmentReturnDate() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          returnDate: 1,
+        },
+      },
+      {
+        $match: {
+          returnDate: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}

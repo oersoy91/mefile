@@ -5,6 +5,14 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
 export default function Home() {
+  const startDate = new Date();
+  const endDate = new Date();
+  endDate.setDate(startDate.getDate() + 90);
+  console.log(startDate);
+  console.log(endDate);
+  const test123 = endDate.toISOString();
+  console.log(test123);
+
   return (
     <div className={styles.container}>
       <Head>
