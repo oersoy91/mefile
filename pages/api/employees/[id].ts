@@ -25,7 +25,16 @@ export default withDatabase(
     }
 
     if (req.method === "PATCH") {
-      const updated = await updateEmployee(id, req.body);
+      const employee = {
+        ...req.body,
+        birthday: new Date(req.body.birthday),
+        startContract: new Date(req.body.startContract),
+        endContract: new Date(req.body.endContract),
+        endTrialPeriod: new Date(req.body.deliveryDate),
+        returnDate: new Date(req.body.returnDate),
+        deliveryDate: new Date(req.body.deliveryDate),
+      };
+      const updated = await updateEmployee(id, employee);
       if (!updated) {
         return res.status(404).end();
       }

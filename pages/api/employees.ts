@@ -5,7 +5,15 @@ import { withDatabase, employees, createNewEmployee } from "../../server/db";
 export default withDatabase(
   async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "POST") {
-      await createNewEmployee(req.body).then(() => {
+      const employee = {
+        ...req.body,
+        birthday: new Date(req.body.birthday),
+        startContract: new Date(req.body.startContract),
+        endContract: new Date(req.body.endContract),
+        endTrialPeriod: new Date(req.body.deliveryDate),
+        returnDate: new Date(req.body.returnDate),
+      };
+      await createNewEmployee(employee).then(() => {
         res.status(200).json(req.body);
       });
     } else {

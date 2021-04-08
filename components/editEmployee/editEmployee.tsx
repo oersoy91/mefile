@@ -24,7 +24,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   const [firstName, setFirstName] = useState(persons.firstName);
   const [lastName, setLastName] = useState(persons.lastName);
   const [birthday, setBirthday] = useState(
-    new Date(persons.birthday).toLocaleDateString()
+    persons.birthday.toString().split("T")[0]
   );
   const [gender, setGender] = useState(persons.gender);
   const [street, setStreet] = useState(persons.adress.street);
@@ -34,10 +34,10 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   const [email, setEmail] = useState(persons.email);
   const [id, setId] = useState(persons.id);
   const [startContract, setStartContract] = useState(
-    new Date(persons.startContract).toLocaleDateString()
+    persons.startContract.toString().split("T")[0]
   );
   const [endContract, setEndContract] = useState(
-    new Date(persons.endContract).toLocaleDateString()
+    persons.endContract.toString().split("T")[0]
   );
 
   const [position, setPosition] = useState(persons.position);
@@ -46,10 +46,10 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
   const [inNumber, setInNumber] = useState(persons.inventoryNumber);
   const [serialNumber, setSerialNumber] = useState(persons.serialNumber);
   const [deliveryDate, setDeliveryDate] = useState(
-    new Date(persons.deliveryDate).toLocaleDateString()
+    persons.deliveryDate.toString().split("T")[0]
   );
   const [returnDate, setReturnDate] = useState(
-    new Date(persons.returnDate).toLocaleDateString()
+    persons.returnDate.toString().split("T")[0]
   );
 
   const sendData = async (e) => {
@@ -85,6 +85,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
     setTimeout(() => router.reload(), 3000);
   };
 
+  console.log(birthday);
   return (
     <>
       <form onSubmit={sendData} autoComplete="off">
@@ -114,7 +115,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               onChange={(e) => setBirthday(e.target.value)}
               id="birthday"
               name="birthday"
-              type="text"
+              type="date"
               required
               value={birthday}
             />
@@ -195,7 +196,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               onChange={(e) => setStartContract(e.target.value)}
               id="startContract"
               name="startContract"
-              type="text"
+              type="date"
               required
               value={startContract}
             />
@@ -205,7 +206,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               onChange={(e) => setEndContract(e.target.value)}
               id="endContract"
               name="endContract"
-              type="text"
+              type="date"
               required
               value={endContract}
             />
@@ -276,7 +277,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               onChange={(e) => setDeliveryDate(e.target.value)}
               id="deliveryDate"
               name="deliveryDate"
-              type="text"
+              type="date"
               required
               value={deliveryDate}
             />
@@ -285,7 +286,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               onChange={(e) => setReturnDate(e.target.value)}
               id="returnDate"
               name="returnDate"
-              type="text"
+              type="date"
               required
               value={returnDate}
             />

@@ -93,24 +93,12 @@ export async function readGenderAmount() {
     .toArray();
 }
 
-// export async function readGenderAmount() {
-//   const employeeCollection = await getCollection("employeeList");
-
-//   const femaleAmount = await employeeCollection
-//     .find({ gender: "weiblich" })
-//     .count();
-//   const maleAmount = await employeeCollection
-//     .find({ gender: "männlich" })
-//     .count();
-//   return { male: maleAmount, female: femaleAmount };
-// }
-
 export async function readCurrentBirthday() {
-  const now: any = new Date();
-  const start: any = new Date(now.getFullYear(), 0, 0);
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
   const diff =
-    now -
-    start +
+    +now -
+    +start +
     (start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000;
   const oneDay = 1000 * 60 * 60 * 24;
   const day = Math.floor(diff / oneDay);
