@@ -3,7 +3,7 @@ import styles from "./Logo.module.css";
 function Logo() {
   return (
     <div className={styles.logo}>
-      <img src="img/logo_me.svg" alt="logo" />
+      <img src="img/mefileLogo.svg" alt="logo" />
     </div>
   );
 }

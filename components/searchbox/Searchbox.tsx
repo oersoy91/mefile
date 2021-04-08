@@ -8,7 +8,7 @@ export type SearchboxProps = {
 const Searchbox = ({ onChange }: SearchboxProps) => {
   return (
     <div className={styles.wrapper}>
-      <img src="img/icon_search.svg" alt="searchIcon" />
+      <img src="img/searchIcon.svg" alt="searchIcon" />
       <input
         className={styles.input}
         onChange={onChange}
