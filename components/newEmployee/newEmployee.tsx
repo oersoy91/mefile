@@ -69,6 +69,7 @@ const NewEmployee = () => {
       serialNumber: serialNumber,
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
+      profileImg: "",
     });
     notify();
     setTimeout(() => router.push(`/employee/${id}`), 2000);
@@ -104,6 +105,7 @@ const NewEmployee = () => {
               id="birthday"
               name="birthday"
               type="date"
+              max={new Date().toISOString().split("T")[0]}
               required
               value={birthday}
             />

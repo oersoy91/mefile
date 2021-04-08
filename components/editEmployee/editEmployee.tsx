@@ -80,6 +80,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
       serialNumber: serialNumber,
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
+      profileImg: "",
     });
     notify();
     setTimeout(() => router.reload(), 3000);
@@ -116,6 +117,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               id="birthday"
               name="birthday"
               type="date"
+              max={new Date().toISOString().split("T")[0]}
               required
               value={birthday}
             />
@@ -207,6 +209,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               id="endContract"
               name="endContract"
               type="date"
+              min={new Date(startContract).toISOString().split("T")[0]}
               required
               value={endContract}
             />
@@ -287,6 +290,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               id="returnDate"
               name="returnDate"
               type="date"
+              min={new Date(deliveryDate).toISOString().split("T")[0]}
               required
               value={returnDate}
             />
