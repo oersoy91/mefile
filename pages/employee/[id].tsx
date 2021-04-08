@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import EmployeeDetails from "../../components/employeeDetails/employeeDetails";
 import LoadingSpinner from "../../components/loadingSpinner/loadingSpinner";
 import styles from "../../styles/Home.module.css";
+import Navbar from "../../components/navbar/navbar";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -21,6 +22,7 @@ const EmployeeDetailsPage = () => {
 
   return (
     <div>
+      <Navbar />
       <EmployeeDetails persons={employee} />
     </div>
   );

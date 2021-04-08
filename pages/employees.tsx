@@ -8,6 +8,7 @@ import EmployeeList from "../components/employeeList/employeeList";
 import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
 import Popup from "../components/popup/popup";
 import NewEmployee from "../components/newEmployee/newEmployee";
+import Navbar from "../components/navbar/navbar";
 
 export type EmployeeListPageProps = { persons: Person[] };
 
@@ -40,6 +41,8 @@ export default function EmployeeListPage() {
       <Head>
         <title>mefiele</title>
       </Head>
+      <Navbar />
+
       <main className={styles.main}>
         <div className={styles.addEmployee}>
           <button
@@ -47,7 +50,7 @@ export default function EmployeeListPage() {
             onClick={() => setButtonPopup(true)}
           >
             Mitarbeiter hinzufügen
-            <img src="img/iconAddEmployee.svg" alt="searchIcon" />
+            <img src="img/addEmployeeIcon.svg" alt="searchIcon" />
           </button>
         </div>
         <Searchbox onChange={inputChange} />

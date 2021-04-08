@@ -1,0 +1,48 @@
+.navContainer {
+  display: flex;
+  width: 65%;
+  height: 100%;
+  justify-content: center;
+  gap: 6em;
+  margin-top: 0.7em;
+}
+
+.logo {
+  width: 8em;
+  height: 3em;
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header img {
+  width: 2.5em;
+  height: 1.5em;
+}
+
+.addEmployeeIcon {
+  margin-right: 0.8em;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 3.5em;
+  background-color: var(--secondary-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoIcon {
+  margin-right: 1em;
+  width: 4em;
+  height: 2em;
+  cursor: pointer;
+}

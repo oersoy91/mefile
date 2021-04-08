@@ -7,6 +7,7 @@ import EndContractList from "../components/endContractList/endContractList";
 import EndTrialPeriodList from "../components/endTrialPeriodList/endTrialPeriodList";
 import EquipmentReturnList from "../components/equipmentReturnList/equipmentReturnList";
 import StartContractList from "../components/startContractList/startContractList";
+import Navbar from "../components/navbar/navbar";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <Navbar />
         <BirthdayList />
         <Cal />
         <EndTrialPeriodList />
