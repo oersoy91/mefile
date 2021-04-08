@@ -6,6 +6,7 @@ import BirthdayList from "../components/birthdayList/birthdayList";
 import EndContractList from "../components/endContractList/endContractList";
 import EndTrialPeriodList from "../components/endTrialPeriodList/endTrialPeriodList";
 import EquipmentReturnList from "../components/equipmentReturnList/equipmentReturnList";
+import StartContractList from "../components/startContractList/startContractList";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <EmployeeAmount />
         <EndContractList />
         <EquipmentReturnList />
+        <StartContractList />
       </main>
     </div>
   );

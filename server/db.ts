@@ -159,6 +159,35 @@ export async function readEndContract() {
     .toArray();
 }
 
+export async function readStartContract() {
+  const endDate = new Date();
+  const startDate = new Date();
+  startDate.setDate(endDate.getDate() - 30);
+
+  const employeeCollection = await getCollection("employeeList");
+  return await employeeCollection
+    .aggregate([
+      {
+        $project: {
+          _id: 0,
+          id: 1,
+          firstName: 1,
+          lastName: 1,
+          startContract: 1,
+        },
+      },
+      {
+        $match: {
+          startContract: {
+            $gte: startDate,
+            $lte: endDate,
+          },
+        },
+      },
+    ])
+    .toArray();
+}
+
 export async function readEndTrialPeriod() {
   const startDate = new Date();
   const endDate = new Date();
