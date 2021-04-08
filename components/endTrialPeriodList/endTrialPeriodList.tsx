@@ -1,6 +1,7 @@
 import styles from "./endTrialPeriodList.module.css";
 import LoadingSpinner from "../loadingSpinner/loadingSpinner";
 import useSWR from "swr";
+import Link from "next/link";
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -36,7 +37,8 @@ export default function EndTrialPeriodList() {
         ) : (
           <>
             <div className={styles.row}>
-              <div>Personal-ID</div>
+              <div></div>
+              <div>ID</div>
 
               <div>Vorname</div>
 
@@ -46,14 +48,26 @@ export default function EndTrialPeriodList() {
             </div>
 
             {data.map((employee) => (
-              <div className={styles.list} key={employee.id}>
-                <div>{employee.id}</div>
-                <div>{employee.firstName}</div>
-                <div>{employee.lastName}</div>
-                <div>
-                  {new Date(employee.endTrialPeriod).toLocaleDateString()}
+              <Link href={`/employee/${employee.id}`} key={employee.id}>
+                <div className={styles.list}>
+                  <div>
+                    <img
+                      src={
+                        employee.profileImg
+                          ? employee.profileImg
+                          : `/img/profileImg.png`
+                      }
+                      alt={employee.firstName}
+                    />
+                  </div>
+                  <div>{employee.id}</div>
+                  <div>{employee.firstName}</div>
+                  <div>{employee.lastName}</div>
+                  <div>
+                    {new Date(employee.endTrialPeriod).toLocaleDateString()}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </>
         )}

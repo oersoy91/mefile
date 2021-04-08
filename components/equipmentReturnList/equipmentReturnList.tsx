@@ -1,6 +1,7 @@
 import styles from "./equipmentReturnList.module.css";
 import LoadingSpinner from "../loadingSpinner/loadingSpinner";
 import useSWR from "swr";
+import Link from "next/link";
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -32,7 +33,8 @@ export default function EquipmentReturnList() {
         ) : (
           <>
             <div className={styles.row}>
-              <div>Personal-ID</div>
+              <div></div>
+              <div>ID</div>
 
               <div>Vorname</div>
 
@@ -42,12 +44,26 @@ export default function EquipmentReturnList() {
             </div>
 
             {data.map((employee) => (
-              <div className={styles.list} key={employee.id}>
-                <div>{employee.id}</div>
-                <div>{employee.firstName}</div>
-                <div>{employee.lastName}</div>
-                <div>{new Date(employee.returnDate).toLocaleDateString()}</div>
-              </div>
+              <Link href={`/employee/${employee.id}`} key={employee.id}>
+                <div className={styles.list}>
+                  <div>
+                    <img
+                      src={
+                        employee.profileImg
+                          ? employee.profileImg
+                          : `/img/profileImg.png`
+                      }
+                      alt={employee.firstName}
+                    />
+                  </div>
+                  <div>{employee.id}</div>
+                  <div>{employee.firstName}</div>
+                  <div>{employee.lastName}</div>
+                  <div>
+                    {new Date(employee.returnDate).toLocaleDateString()}
+                  </div>
+                </div>
+              </Link>
             ))}
           </>
         )}

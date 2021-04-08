@@ -9,47 +9,40 @@ export type EmployeeListProps = {
 const EmployeeList = ({ persons }: EmployeeListProps) => {
   return (
     <div>
-      <div className={styles.header}>
-        <div className={styles.headerImg}></div>
+      <div className={styles.container}>
+        <h2 className={styles.header}>Mitarbeiterliste</h2>
 
-        <button className={styles.headerFirstname}>
-          <div>First Name</div>
-        </button>
+        <div className={styles.row}>
+          <div></div>
+          <div>ID</div>
 
-        <button className={styles.headerLastname}>
-          <div>Last Name</div>
-        </button>
+          <div>Vorname</div>
 
-        <button className={styles.headerStatus}>
-          <div>Status</div>
-        </button>
+          <div>Nachname</div>
 
-        <button className={styles.headerPosition}>
           <div>Position</div>
-        </button>
-      </div>
-
-      {persons.map((person) => (
-        <Link href={`/employee/${person.id}`} key={person.id}>
-          <div className={styles.row}>
-            <div className={styles.img}>
-              <img
-                src={
-                  person.profileImg ? person.profileImg : `/img/profileImg.png`
-                }
-                alt={person.firstName}
-              />
+        </div>
+        {persons.map((person) => (
+          <Link href={`/employee/${person.id}`} key={person.id}>
+            <div className={styles.list}>
+              <div>
+                <img
+                  src={
+                    person.profileImg
+                      ? person.profileImg
+                      : `/img/profileImg.png`
+                  }
+                  alt={person.firstName}
+                />
+              </div>
+              <div>{person.id}</div>
+              <div>{person.firstName}</div>
+              <div>{person.lastName}</div>
+              <div>{person.position}</div>
             </div>
-            <div className={styles.firstname}>{person.firstName}</div>
-
-            <div className={styles.lastname}>{person.lastName}</div>
-
-            <div className={styles.status}>{person.status}</div>
-
-            <div className={styles.position}>{person.position}</div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
