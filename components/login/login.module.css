@@ -1,0 +1,82 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 25em;
+  height: 3.5em;
+  color: var(--primary-color);
+  margin-bottom: 3em;
+  border: none;
+  border-bottom: solid var(--primary-text-color);
+}
+
+.input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  color: var(--primary-text-color);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.input::placeholder {
+  color: var(---primary-text-color);
+}
+
+.btn {
+  font-size: 2em;
+  padding: 0.1em 0.6em;
+  background: var(--btn-bg-color);
+  color: var(--btn-color);
+  border-radius: 9px;
+  border: none;
+  outline-color: var(--btn-bg-color);
+  width: 6.5em;
+  cursor: pointer;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5em;
+}
+
+.formPopup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.newAccount {
+  color: var(--primary-text-color);
+  margin-top: 1em;
+  font-weight: 500;
+}
+
+.newAccount span {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+.heading {
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+}
+
+.subheading {
+  margin-top: 3em;
+  width: 25em;
+  font-size: 14px;
+}
+
+.test111 {
+  margin-top: 1em;
+}

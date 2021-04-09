@@ -24,7 +24,7 @@ export default function EndContractList() {
         {data.length > 0 ? (
           <>
             <p className={styles.subhead}>
-              Auslaufende Verträge der nächsten 30 Tage
+              Auslaufende Verträge der nächsten 30 Tage.
             </p>
           </>
         ) : (
@@ -34,7 +34,7 @@ export default function EndContractList() {
         {data.length === 0 ? (
           <>
             <div className={styles.notification}>
-              <div>Keine auslaufenden Verträge in den nächsten 30 Tagen</div>
+              <div>Keine auslaufenden Verträge in den nächsten 30 Tagen.</div>
             </div>
           </>
         ) : (

@@ -25,7 +25,7 @@ export default function EndTrialPeriodList() {
         {data.length > 0 ? (
           <>
             <p className={styles.subhead}>
-              Probezeit von Mitarbeitern die in den nächsten 30 Tagen auslaufen
+              Probezeit von Mitarbeitern die in den nächsten 30 Tagen auslaufen.
             </p>
           </>
         ) : (
@@ -37,7 +37,7 @@ export default function EndTrialPeriodList() {
             <div className={styles.notification}>
               <div>
                 Keine Mitarbeiter deren Probezeit in den nächsten 30 Tagen
-                ausläuft
+                ausläuft.
               </div>
             </div>
           </>
