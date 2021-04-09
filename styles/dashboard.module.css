@@ -1,0 +1,54 @@
+.container {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7em;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 4em;
+}
+
+.line {
+  width: 25em;
+  border-bottom: solid rgb(182, 182, 182);
+  margin-top: 4em;
+  margin-bottom: 4em;
+}
+
+.firstLine {
+  width: 25em;
+  border-bottom: solid rgb(182, 182, 182);
+  margin-bottom: 4em;
+}
+
+.calendar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 11em 1em 0 0;
+}
+
+@media (max-width: 1250px) {
+  .calendar {
+    width: 14em;
+    height: 22em;
+  }
+}
+
+@media (max-width: 1020px) {
+  .calendar {
+    display: none;
+  }
+}

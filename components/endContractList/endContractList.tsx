@@ -11,7 +11,7 @@ export default function EndContractList() {
   if (error) return <div>failed to load</div>;
   if (!data)
     return (
-      <div className={styles.spinnerContainer}>
+      <div>
         <LoadingSpinner />
       </div>
     );
@@ -20,9 +20,16 @@ export default function EndContractList() {
     <div>
       <div className={styles.container}>
         <h2 className={styles.header}>Auslaufende Verträge</h2>
-        <p className={styles.subhead}>
-          Auslaufende Verträge der nächsten 30 Tage
-        </p>
+
+        {data.length > 0 ? (
+          <>
+            <p className={styles.subhead}>
+              Auslaufende Verträge der nächsten 30 Tage
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
 
         {data.length === 0 ? (
           <>

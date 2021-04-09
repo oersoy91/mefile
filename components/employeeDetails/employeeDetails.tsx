@@ -64,24 +64,8 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
         </div>
       </div>
 
-      <div className={styles.navContainer}>
-        <nav>
-          <ul className={styles.navLink}>
-            <li>
-              <a href="#baseData">Stammdaten</a>
-            </li>
-            <li>
-              <a href="#personData">Personalinformation</a>
-            </li>
-            <li>
-              <a href="#eqData">Geräteausleihe</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
       <div className={styles.mainContainer}>
-        <div className={styles.employeeDataContainer} id="baseData">
+        <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Stammdaten</h2>
           <label htmlFor="firstName">Vorname</label>
           <input type="text" value={persons.firstName} />
@@ -101,7 +85,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <label htmlFor="email">E-Mail</label>
           <input type="text" value={persons.email} />
         </div>
-        <div className={styles.employeeDataContainer} id="personData">
+        <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Personalinformation</h2>
           <label htmlFor="id">Personal ID</label>
           <input type="text" value={persons.id} />
@@ -125,7 +109,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <label htmlFor="status">Status</label>
           <input type="text" value={persons.status} />
         </div>
-        <div className={styles.employeeDataContainer} id="eqData">
+        <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Geräteausleihe</h2>
           <label htmlFor="eq">Gerät</label>
           <input type="text" value={persons.equipment} />
