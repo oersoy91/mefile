@@ -11,7 +11,7 @@ export default function EquipmentReturnList() {
   if (error) return <div>failed to load</div>;
   if (!data)
     return (
-      <div className={styles.spinnerContainer}>
+      <div>
         <LoadingSpinner />
       </div>
     );
@@ -20,9 +20,16 @@ export default function EquipmentReturnList() {
     <div>
       <div className={styles.container}>
         <h2 className={styles.header}>Geräterückgabeliste</h2>
-        <p className={styles.subhead}>
-          Rückgabe von Geräten in den nächsten 30 Tagen{" "}
-        </p>
+
+        {data.length > 0 ? (
+          <>
+            <p className={styles.subhead}>
+              Rückgabe von Geräten in den nächsten 30 Tagen
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
 
         {data.length === 0 ? (
           <>

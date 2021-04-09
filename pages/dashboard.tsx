@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/dashboard.module.css";
 import Cal from "../components/calendar/calendar";
 import EmployeeAmount from "../components/employeeAmount/employeeAmount";
 import BirthdayList from "../components/birthdayList/birthdayList";
@@ -9,7 +9,7 @@ import EquipmentReturnList from "../components/equipmentReturnList/equipmentRetu
 import StartContractList from "../components/startContractList/startContractList";
 import Navbar from "../components/navbar/navbar";
 
-export default function Home() {
+export default function Dashboard() {
   return (
     <div className={styles.container}>
       <Head>
@@ -18,13 +18,27 @@ export default function Home() {
 
       <main className={styles.main}>
         <Navbar />
-        <BirthdayList />
-        <Cal />
-        <EndTrialPeriodList />
+        <div className={styles.calendar}>
+          <Cal />
+        </div>
+
+        <div className={styles.firstLine}></div>
         <EmployeeAmount />
+        <div className={styles.line}></div>
+        <BirthdayList />
+        <div className={styles.line}></div>
+
+        <EndTrialPeriodList />
+        <div className={styles.line}></div>
+
         <EndContractList />
+        <div className={styles.line}></div>
+
         <EquipmentReturnList />
+        <div className={styles.line}></div>
+
         <StartContractList />
+        <div className={styles.line}></div>
       </main>
     </div>
   );

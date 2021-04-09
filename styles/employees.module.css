@@ -1,5 +1,4 @@
 .container {
-  min-height: 80vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -18,9 +17,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 6em;
   font-size: 1em;
   padding: 0.2em 0.2em;
-  background: #5388b4;
+  background: #248291;
   color: var(--btn-color);
   border-radius: 6px;
   border: none;

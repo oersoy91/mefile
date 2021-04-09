@@ -11,7 +11,7 @@ export default function Charts() {
   if (error) return <div>failed to load</div>;
   if (!gender)
     return (
-      <div className={styles.container}>
+      <div>
         <LoadingSpinner />
       </div>
     );
@@ -43,6 +43,7 @@ export default function Charts() {
           legend: { position: "bottom" },
           chartArea: { width: "100%", height: "80%" },
           theme: "maximized",
+
           is3D: true,
         }}
         rootProps={{ "data-testid": "1" }}

@@ -11,7 +11,7 @@ export default function EndTrialPeriodList() {
   if (error) return <div>failed to load</div>;
   if (!data)
     return (
-      <div className={styles.spinnerContainer}>
+      <div>
         <LoadingSpinner />
       </div>
     );
@@ -21,9 +21,16 @@ export default function EndTrialPeriodList() {
     <div>
       <div className={styles.container}>
         <h2 className={styles.header}>Probezeiten</h2>
-        <p className={styles.subhead}>
-          Probezeit von Mitarbeitern die in den nächsten 30 Tagen auslaufen
-        </p>
+
+        {data.length > 0 ? (
+          <>
+            <p className={styles.subhead}>
+              Probezeit von Mitarbeitern die in den nächsten 30 Tagen auslaufen
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
 
         {data.length === 0 ? (
           <>

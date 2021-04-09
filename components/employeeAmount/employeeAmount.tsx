@@ -11,7 +11,7 @@ export default function EmployeeAmount() {
   if (error) return <div>failed to load</div>;
   if (!gender)
     return (
-      <div className={styles.container}>
+      <div>
         <LoadingSpinner />
       </div>
     );

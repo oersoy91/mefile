@@ -38,6 +38,10 @@
   background-color: var(--secondary-color);
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 3;
 }
 
 .infoIcon {
@@ -45,4 +49,22 @@
   width: 4em;
   height: 2em;
   cursor: pointer;
+}
+
+.companyDetails {
+  margin: 0;
+}
+
+.companyName {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.legal {
+  margin-top: 1.5em;
+}
+
+.web {
+  margin-top: 1.5em;
 }

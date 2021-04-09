@@ -11,7 +11,7 @@ export default function BirthdayList() {
   if (error) return <div>failed to load</div>;
   if (!data)
     return (
-      <div className={styles.spinnerContainer}>
+      <div>
         <LoadingSpinner />
       </div>
     );
@@ -20,7 +20,14 @@ export default function BirthdayList() {
     <div>
       <div className={styles.container}>
         <h2 className={styles.header}>Geburtstage</h2>
-        <p className={styles.subhead}>Geburtstage der nächsten 30 Tage</p>
+
+        {data.length > 0 ? (
+          <>
+            <p className={styles.subhead}>Geburtstage der nächsten 30 Tage</p>
+          </>
+        ) : (
+          <></>
+        )}
 
         {data.length === 0 ? (
           <>

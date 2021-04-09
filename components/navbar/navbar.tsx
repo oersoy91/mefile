@@ -55,18 +55,18 @@ function Navbar() {
         <div className={styles.popupContainer}>
           <h1>Impressum</h1>
           <p>Angaben gemäß § 5 TMG</p>
-          <p>mefile GmbH</p>
-          <p>Frankenweg 93</p>
-          <p>48167 Münster</p>
-          <p>Tel.: +49(251) 234 56789</p>
-          <p>E-Mail: info@mefile.de</p>
+          <p className={styles.companyName}>mefile GmbH</p>
+          <p className={styles.companyDetails}>Frankenweg 93</p>
+          <p className={styles.companyDetails}>48167 Münster</p>
+          <p className={styles.companyDetails}>Tel.: +49(251) 234 56789</p>
+          <p className={styles.companyDetails}>E-Mail: info@mefile.de</p>
           <p> Vertreten durch Geschäftsführer: Osman Ersoy</p>
-          <h2> Rechtliches</h2>
+          <h2 className={styles.legal}> Rechtliches</h2>
           <p>Eintragung im Handelsregister</p>
           <p>Registernummer: HRB 123456789</p>
           <p>Registergericht: Amtsgericht Münster</p>
           <p>USt-IdNr.: DE123456789</p>
-          <h2>website: www.mefile.de</h2>
+          <h2 className={styles.web}>www.mefile.de</h2>
         </div>
       </Popup>
     </>
