@@ -24,7 +24,7 @@ export default function EquipmentReturnList() {
         {data.length > 0 ? (
           <>
             <p className={styles.subhead}>
-              Rückgabe von Geräten in den nächsten 30 Tagen
+              Rückgabe von Geräten in den nächsten 30 Tagen.
             </p>
           </>
         ) : (
@@ -34,7 +34,7 @@ export default function EquipmentReturnList() {
         {data.length === 0 ? (
           <>
             <div className={styles.notification}>
-              <div>Keine Rückgabe von Geräten in den nächsten 30 Tagen</div>
+              <div>Keine Rückgabe von Geräten in den nächsten 30 Tagen.</div>
             </div>
           </>
         ) : (

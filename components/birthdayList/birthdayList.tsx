@@ -23,7 +23,7 @@ export default function BirthdayList() {
 
         {data.length > 0 ? (
           <>
-            <p className={styles.subhead}>Geburtstage der nächsten 30 Tage</p>
+            <p className={styles.subhead}>Geburtstage der nächsten 30 Tage.</p>
           </>
         ) : (
           <></>
@@ -32,7 +32,7 @@ export default function BirthdayList() {
         {data.length === 0 ? (
           <>
             <div className={styles.notification}>
-              <div>Keine Geburtstage in den nächsten 30 Tagen</div>
+              <div>Keine Geburtstage in den nächsten 30 Tagen.</div>
             </div>
           </>
         ) : (

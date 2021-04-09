@@ -23,7 +23,7 @@ export default function StartContractList() {
         {data.length > 0 ? (
           <>
             <p className={styles.subhead}>
-              Mitarbeiter Neuzugänge in den letzten 30 Tagen
+              Mitarbeiter Neuzugänge in den letzten 30 Tagen.
             </p>
           </>
         ) : (
@@ -33,7 +33,7 @@ export default function StartContractList() {
         {data.length === 0 ? (
           <>
             <div className={styles.notification}>
-              <div>Keine Mitarbeiter Neuzugänge in den letzten 30 Tagen</div>
+              <div>Keine Mitarbeiter Neuzugänge in den letzten 30 Tagen.</div>
             </div>
           </>
         ) : (

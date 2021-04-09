@@ -1,8 +1,6 @@
 import Head from "next/head";
-import Button from "../components/button/Button";
-import Logo from "../components/logo/Logo";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
+import Login from "../components/login/login";
 
 export default function Home() {
   return (
@@ -12,11 +10,11 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Button />
-        <Logo />
-        <Link href={"/employees"}>
-          <button>Klick mich um auf die nächste Seite zu gelangen</button>
-        </Link>
+        <div className={styles.header}>
+          <img src="img/mefileLogo.svg" alt="logo" />
+          <p className={styles.heading}>Deine digiale Personalakte</p>
+        </div>
+        <Login />
       </main>
     </div>
   );
