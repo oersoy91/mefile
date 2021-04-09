@@ -1,5 +1,5 @@
 import { deleteData } from "../../utils/fetchData";
-import { Person } from "../../utils/types";
+import { Employee } from "../../utils/types";
 import styles from "./employeeDetails.module.css";
 import { useRouter } from "next/router";
 import PopupSmall from "../popupSmall/popupSmall";
@@ -11,10 +11,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 
 export type EmployeeDetailProps = {
-  persons: Person;
+  employee: Employee;
 };
 
-const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
+const EmployeeDetails = ({ employee }: EmployeeDetailProps) => {
   const notify = async () =>
     await toast.error("Mitarbeiter wird gelöscht!", {
       autoClose: 3000,
@@ -29,13 +29,13 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
 
   const router = useRouter();
   const adress =
-    persons.adress?.street +
+    employee.adress?.street +
     " " +
-    persons.adress?.houseNumber +
+    employee.adress?.houseNumber +
     ", " +
-    persons.adress?.zipCode +
+    employee.adress?.zipCode +
     " " +
-    persons.adress?.city;
+    employee.adress?.city;
 
   function getAge(dateString) {
     const today = new Date();
@@ -52,15 +52,17 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
     <>
       <div className={styles.headerContainer}>
         <img
-          src={persons.profileImg ? persons.profileImg : `/img/profileImg.png`}
-          alt={persons.firstName}
+          src={
+            employee.profileImg ? employee.profileImg : `/img/profileImg.png`
+          }
+          alt={employee.firstName}
           className={styles.headerImg}
         />
         <div className={styles.headerNamePosition}>
           <h1 className={styles.headerName}>
-            {persons.firstName} {persons.lastName}
+            {employee.firstName} {employee.lastName}
           </h1>
-          <p className={styles.headerPosition}>{persons.position}</p>
+          <p className={styles.headerPosition}>{employee.position}</p>
         </div>
       </div>
 
@@ -68,64 +70,64 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
         <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Stammdaten</h2>
           <label htmlFor="firstName">Vorname</label>
-          <input type="text" value={persons.firstName} />
+          <input type="text" value={employee.firstName} />
           <label htmlFor="lastName">Nachname</label>
-          <input type="text" value={persons.lastName} />
+          <input type="text" value={employee.lastName} />
           <label htmlFor="birthday">Geburtsdatum</label>
           <input
             type="text"
-            value={new Date(persons.birthday).toLocaleDateString()}
+            value={new Date(employee.birthday).toLocaleDateString()}
           />
           <label htmlFor="age">Alter</label>
-          <input type="text" value={getAge(persons.birthday)} />
+          <input type="text" value={getAge(employee.birthday)} />
           <label htmlFor="gender">Geschlecht</label>
-          <input type="text" value={persons.gender} />
+          <input type="text" value={employee.gender} />
           <label htmlFor="adress">Adresse</label>
           <input type="text" value={adress} />
           <label htmlFor="email">E-Mail</label>
-          <input type="text" value={persons.email} />
+          <input type="text" value={employee.email} />
         </div>
         <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Personalinformation</h2>
           <label htmlFor="id">Personal ID</label>
-          <input type="text" value={persons.id} />
+          <input type="text" value={employee.id} />
           <label htmlFor="startContract">Vertragsbeginn</label>
           <input
             type="text"
-            value={new Date(persons.startContract).toLocaleDateString()}
+            value={new Date(employee.startContract).toLocaleDateString()}
           />
           <label htmlFor="endContract">Vertragsende</label>
           <input
             type="text"
-            value={new Date(persons.endContract).toLocaleDateString()}
+            value={new Date(employee.endContract).toLocaleDateString()}
           />
           <label htmlFor="endTrialPeriod">Ende der Probezeit</label>
           <input
             type="text"
-            value={new Date(persons.endTrialPeriod).toLocaleDateString()}
+            value={new Date(employee.endTrialPeriod).toLocaleDateString()}
           />
           <label htmlFor="position">Position</label>
-          <input type="text" value={persons.position} />
+          <input type="text" value={employee.position} />
           <label htmlFor="status">Status</label>
-          <input type="text" value={persons.status} />
+          <input type="text" value={employee.status} />
         </div>
         <div className={styles.employeeDataContainer}>
           <h2 className={styles.mainHeader}>Geräteausleihe</h2>
           <label htmlFor="eq">Gerät</label>
-          <input type="text" value={persons.equipment} />
+          <input type="text" value={employee.equipment} />
           <label htmlFor="inNumer">Inventurnummer</label>
-          <input type="text" value={persons.inventoryNumber} />
+          <input type="text" value={employee.inventoryNumber} />
           <label htmlFor="serialNumber">Seriennummer</label>
-          <input type="text" value={persons.serialNumber} />
+          <input type="text" value={employee.serialNumber} />
           <label htmlFor="deliveryDate">Übergabedatum</label>
           <input
             type="text"
-            value={new Date(persons.deliveryDate).toLocaleDateString()}
+            value={new Date(employee.deliveryDate).toLocaleDateString()}
           />
           <label htmlFor="returnlDate">Rückgabedatum</label>
           <input
             type="text"
-            value={new Date(persons.returnDate).toLocaleDateString()}
+            value={new Date(employee.returnDate).toLocaleDateString()}
           />
         </div>
       </div>
@@ -159,7 +161,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
           <button
             onClick={() =>
               notify()
-                .then(() => deleteData(persons.id))
+                .then(() => deleteData(employee.id))
                 .then(() => setTimeout(() => router.push("/employees"), 3000))
             }
             className={styles.btnDelete}
@@ -169,7 +171,7 @@ const EmployeeDetails = ({ persons }: EmployeeDetailProps) => {
         </div>
       </PopupSmall>
       <Popup trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}>
-        <EditEmployee persons={persons} />
+        <EditEmployee employee={employee} />
       </Popup>
       <ToastContainer />
     </>

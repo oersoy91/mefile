@@ -1,4 +1,4 @@
-import { Person } from "../../utils/types";
+import { Employee } from "../../utils/types";
 import styles from "./newEmployee.module.css";
 import { postData } from "../../utils/fetchData";
 import { useState } from "react";
@@ -7,7 +7,7 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export type EmployeeDetailProps = {
-  persons: Person;
+  persons: Employee;
 };
 
 const NewEmployee = () => {

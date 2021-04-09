@@ -1,4 +1,4 @@
-export type Person = {
+export type Employee = {
   id: string;
   profileImg: string;
   firstName: string;

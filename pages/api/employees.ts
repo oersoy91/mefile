@@ -12,6 +12,7 @@ export default withDatabase(
         endContract: new Date(req.body.endContract),
         endTrialPeriod: new Date(req.body.deliveryDate),
         returnDate: new Date(req.body.returnDate),
+        deliveryDate: new Date(req.body.deliveryDate),
       };
       await createNewEmployee(employee).then(() => {
         res.status(200).json(req.body);

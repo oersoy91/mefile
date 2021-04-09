@@ -1,24 +1,23 @@
 import Chart from "react-google-charts";
 import useSWR from "swr";
 import LoadingSpinner from "../loadingSpinner/loadingSpinner";
-import styles from "./charts.module.css";
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Charts() {
-  const { data: gender, error } = useSWR("/api/genderAmount", fetcher);
+  const { data, error } = useSWR("/api/genderAmount", fetcher);
 
   if (error) return <div>failed to load</div>;
-  if (!gender)
+  if (!data)
     return (
       <div>
         <LoadingSpinner />
       </div>
     );
 
-  const male = gender[0].männlich;
-  const female = gender[0].weiblich;
-  const divers = gender[0].diverse;
+  const male = data[0].männlich;
+  const female = data[0].weiblich;
+  const divers = data[0].diverse;
 
   return (
     <div>
@@ -27,7 +26,7 @@ export default function Charts() {
         height={"300px"}
         chartType="PieChart"
         loader={
-          <div className={styles.container}>
+          <div>
             <LoadingSpinner />
           </div>
         }

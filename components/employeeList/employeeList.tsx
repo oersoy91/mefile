@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Person } from "../../utils/types";
+import { Employee } from "../../utils/types";
 import styles from "./employeeList.module.css";
 
 export type EmployeeListProps = {
-  persons: Person[];
+  persons: Employee[];
 };
 
 const EmployeeList = ({ persons }: EmployeeListProps) => {
