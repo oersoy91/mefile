@@ -67,7 +67,7 @@ const NewEmployee = () => {
       profileImg: "",
     });
     notify();
-    setTimeout(() => router.push(`/employee/${id}`), 2000);
+    setTimeout(() => router.push(`/employee/${id}`), 3000);
   };
 
   return (
