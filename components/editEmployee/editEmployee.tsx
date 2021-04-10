@@ -32,7 +32,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
   const [zipCode, setZipCode] = useState(employee.adress.zipCode);
   const [city, setCity] = useState(employee.adress.city);
   const [email, setEmail] = useState(employee.email);
-  const [id, setId] = useState(employee.id);
+  const [ID, setId] = useState(employee.id);
   const [startContract, setStartContract] = useState(
     employee.startContract.toString().split("T")[0]
   );
@@ -57,7 +57,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
     endTrialPeriod.setDate(endTrialPeriod.getDate() + 90);
 
     e.preventDefault();
-    await patchData(id, {
+    await patchData(employee.id, {
       firstName: firstName,
       lastName: lastName,
       birthday: new Date(birthday).toISOString(),
@@ -69,7 +69,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
         city,
       },
       email: email,
-      id: id,
+      id: ID,
       startContract: new Date(startContract).toISOString(),
       endContract: new Date(endContract).toISOString(),
       endTrialPeriod: new Date(endTrialPeriod).toISOString(),
@@ -83,7 +83,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
       profileImg: "",
     });
     notify();
-    setTimeout(() => router.reload(), 3000);
+    setTimeout(() => router.push(`/employee/${ID}`), 3000);
   };
 
   console.log(birthday);
@@ -191,7 +191,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
               name="id"
               type="number"
               required
-              value={id}
+              value={ID}
             />
             <label htmlFor="startContract">Vertragsbeginn</label>
             <input
