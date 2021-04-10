@@ -7,7 +7,6 @@ import Popup from "../popup/popup";
 import EditEmployee from "../editEmployee/editEmployee";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { useState } from "react";
 
 export type EmployeeDetailProps = {

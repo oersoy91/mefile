@@ -19,8 +19,6 @@ const readStorybookStatic = (filename) => {
 
 app.prepare().then(async () => {
   createServer(async (req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true);
     const { pathname } = parsedUrl;
 
@@ -43,7 +41,6 @@ app.prepare().then(async () => {
       res.write(file);
       return res.end();
     }
-    // Forward to next handler
     handle(req, res, parsedUrl);
   }).listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`);

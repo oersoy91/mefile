@@ -3,10 +3,10 @@ import { Employee } from "../../utils/types";
 import styles from "./employeeList.module.css";
 
 export type EmployeeListProps = {
-  persons: Employee[];
+  employees: Employee[];
 };
 
-const EmployeeList = ({ persons }: EmployeeListProps) => {
+const EmployeeList = ({ employees }: EmployeeListProps) => {
   return (
     <div>
       <div className={styles.container}>
@@ -22,23 +22,23 @@ const EmployeeList = ({ persons }: EmployeeListProps) => {
 
           <div>Position</div>
         </div>
-        {persons.map((person) => (
-          <Link href={`/employee/${person.id}`} key={person.id}>
+        {employees.map((employee) => (
+          <Link href={`/employee/${employee.id}`} key={employee.id}>
             <div className={styles.list}>
               <div>
                 <img
                   src={
-                    person.profileImg
-                      ? person.profileImg
+                    employee.profileImg
+                      ? employee.profileImg
                       : `/img/profileImg.png`
                   }
-                  alt={person.firstName}
+                  alt={employee.firstName}
                 />
               </div>
-              <div>{person.id}</div>
-              <div>{person.firstName}</div>
-              <div>{person.lastName}</div>
-              <div>{person.position}</div>
+              <div>{employee.id}</div>
+              <div>{employee.firstName}</div>
+              <div>{employee.lastName}</div>
+              <div>{employee.position}</div>
             </div>
           </Link>
         ))}

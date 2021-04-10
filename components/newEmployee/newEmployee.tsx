@@ -1,14 +1,9 @@
-import { Employee } from "../../utils/types";
 import styles from "./newEmployee.module.css";
 import { postData } from "../../utils/fetchData";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-export type EmployeeDetailProps = {
-  persons: Employee;
-};
 
 const NewEmployee = () => {
   const notify = () =>
