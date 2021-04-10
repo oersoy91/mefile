@@ -84,7 +84,7 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
     });
     notify();
     setTimeout(() => router.push(`/employee/${ID}`), 3000);
-    setTimeout(() => router.reload(), 3000);
+    setTimeout(() => router.reload(), 3100);
   };
 
   console.log(birthday);
