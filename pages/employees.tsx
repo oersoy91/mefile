@@ -1,4 +1,3 @@
-import type { Person } from "../utils/types";
 import styles from "../styles/employees.module.css";
 import useSWR from "swr";
 import Searchbox from "../components/searchbox/Searchbox";
@@ -9,8 +8,6 @@ import LoadingSpinner from "../components/loadingSpinner/loadingSpinner";
 import Popup from "../components/popup/popup";
 import NewEmployee from "../components/newEmployee/newEmployee";
 import Navbar from "../components/navbar/navbar";
-
-export type EmployeeListPageProps = { persons: Person[] };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 export default function EmployeeListPage() {
@@ -25,15 +22,15 @@ export default function EmployeeListPage() {
   if (error) return <div>failed to load</div>;
   if (!employeeList)
     return (
-      <div className={styles.container}>
+      <div className={styles.spinnerContainer}>
         <LoadingSpinner />
       </div>
     );
 
-  const filterPersons = employeeList.filter(
-    (person) =>
-      person.firstName.toLowerCase().includes(keyword) ||
-      person.lastName.toLowerCase().includes(keyword)
+  const filterEmployees = employeeList.filter(
+    (employee) =>
+      employee.firstName.toLowerCase().includes(keyword) ||
+      employee.lastName.toLowerCase().includes(keyword)
   );
 
   return (
@@ -55,7 +52,7 @@ export default function EmployeeListPage() {
         </div>
         <Searchbox onChange={inputChange} />
 
-        <EmployeeList persons={filterPersons} />
+        <EmployeeList employees={filterEmployees} />
       </main>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <NewEmployee />

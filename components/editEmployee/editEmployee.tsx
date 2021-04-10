@@ -1,4 +1,4 @@
-import { Person } from "../../utils/types";
+import { Employee } from "../../utils/types";
 import styles from "./editEmployee.module.css";
 import { patchData } from "../../utils/fetchData";
 import { useState } from "react";
@@ -7,10 +7,10 @@ import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export type EmployeeDetailProps = {
-  persons: Person;
+  employee: Employee;
 };
 
-const EditEmployee = ({ persons }: EmployeeDetailProps) => {
+const EditEmployee = ({ employee }: EmployeeDetailProps) => {
   const notify = () =>
     toast.info("Mitarbeiter wird aktualisiert!", {
       autoClose: 3000,
@@ -21,35 +21,35 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
       transition: Zoom,
     });
   const router = useRouter();
-  const [firstName, setFirstName] = useState(persons.firstName);
-  const [lastName, setLastName] = useState(persons.lastName);
+  const [firstName, setFirstName] = useState(employee.firstName);
+  const [lastName, setLastName] = useState(employee.lastName);
   const [birthday, setBirthday] = useState(
-    persons.birthday.toString().split("T")[0]
+    employee.birthday.toString().split("T")[0]
   );
-  const [gender, setGender] = useState(persons.gender);
-  const [street, setStreet] = useState(persons.adress.street);
-  const [houseNumber, setHouseNumber] = useState(persons.adress.houseNumber);
-  const [zipCode, setZipCode] = useState(persons.adress.zipCode);
-  const [city, setCity] = useState(persons.adress.city);
-  const [email, setEmail] = useState(persons.email);
-  const [id, setId] = useState(persons.id);
+  const [gender, setGender] = useState(employee.gender);
+  const [street, setStreet] = useState(employee.adress.street);
+  const [houseNumber, setHouseNumber] = useState(employee.adress.houseNumber);
+  const [zipCode, setZipCode] = useState(employee.adress.zipCode);
+  const [city, setCity] = useState(employee.adress.city);
+  const [email, setEmail] = useState(employee.email);
+  const [ID, setId] = useState(employee.id);
   const [startContract, setStartContract] = useState(
-    persons.startContract.toString().split("T")[0]
+    employee.startContract.toString().split("T")[0]
   );
   const [endContract, setEndContract] = useState(
-    persons.endContract.toString().split("T")[0]
+    employee.endContract.toString().split("T")[0]
   );
 
-  const [position, setPosition] = useState(persons.position);
-  const [status, setStatus] = useState(persons.status);
-  const [eq, setEq] = useState(persons.equipment);
-  const [inNumber, setInNumber] = useState(persons.inventoryNumber);
-  const [serialNumber, setSerialNumber] = useState(persons.serialNumber);
+  const [position, setPosition] = useState(employee.position);
+  const [status, setStatus] = useState(employee.status);
+  const [eq, setEq] = useState(employee.equipment);
+  const [inNumber, setInNumber] = useState(employee.inventoryNumber);
+  const [serialNumber, setSerialNumber] = useState(employee.serialNumber);
   const [deliveryDate, setDeliveryDate] = useState(
-    persons.deliveryDate.toString().split("T")[0]
+    employee.deliveryDate.toString().split("T")[0]
   );
   const [returnDate, setReturnDate] = useState(
-    persons.returnDate.toString().split("T")[0]
+    employee.returnDate.toString().split("T")[0]
   );
 
   const sendData = async (e) => {
@@ -57,7 +57,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
     endTrialPeriod.setDate(endTrialPeriod.getDate() + 90);
 
     e.preventDefault();
-    await patchData(id, {
+    await patchData(employee.id, {
       firstName: firstName,
       lastName: lastName,
       birthday: new Date(birthday).toISOString(),
@@ -69,7 +69,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
         city,
       },
       email: email,
-      id: id,
+      id: ID,
       startContract: new Date(startContract).toISOString(),
       endContract: new Date(endContract).toISOString(),
       endTrialPeriod: new Date(endTrialPeriod).toISOString(),
@@ -83,7 +83,8 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
       profileImg: "",
     });
     notify();
-    setTimeout(() => router.reload(), 3000);
+    setTimeout(() => router.push(`/employee/${ID}`), 3000);
+    setTimeout(() => router.reload(), 3100);
   };
 
   console.log(birthday);
@@ -191,7 +192,7 @@ const EditEmployee = ({ persons }: EmployeeDetailProps) => {
               name="id"
               type="number"
               required
-              value={id}
+              value={ID}
             />
             <label htmlFor="startContract">Vertragsbeginn</label>
             <input

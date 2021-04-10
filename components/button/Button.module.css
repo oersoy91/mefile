@@ -1,9 +1,0 @@
-.btn {
-  font-size: 2.2em;
-  padding: 0.1em 0.6em;
-  background: var(--btn-bg-color);
-  color: var(--btn-color);
-  border-radius: 9px;
-  border: none;
-  outline-color: var(--btn-bg-color);
-}

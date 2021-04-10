@@ -36,7 +36,7 @@ const Login = () => {
       </form>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <p className={styles.heading}>Registrieren</p>
-        <p className={styles.test111}>Es geht schnell und einfach.</p>
+        <p className={styles.subheader}>Es geht schnell und einfach.</p>
         <form className={styles.formPopup}>
           <div className={styles.wrapper}>
             <input type="text" className={styles.input} placeholder="Vorname" />

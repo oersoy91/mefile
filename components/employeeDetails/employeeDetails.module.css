@@ -70,45 +70,6 @@
   margin-bottom: 0.2em;
 }
 
-.navContainer nav {
-  margin-top: 3em;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-  background-color: #248291;
-  color: white;
-  flex: wrap;
-}
-
-.navLink li {
-  display: inline-block;
-  padding: 0 3.5em;
-}
-
-.navLink li a {
-  color: white;
-  margin: 0 20px;
-  padding: 10px 0;
-  position: relative;
-  transition: 0.3s ease-out 0.1s;
-}
-
-.navLink li a::after {
-  height: 2px;
-  width: 100%;
-  background: white;
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: scaleX(0);
-  transition: 0.3s;
-}
-
-.navLink li a:hover::after {
-  transform: scaleX(1);
-}
-
 .btnDelete {
   font-size: 1.2em;
   padding: 0.5em 0.3em;

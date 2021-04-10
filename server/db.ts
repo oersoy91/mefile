@@ -1,11 +1,8 @@
 import { MongoClient } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Employee } from "../utils/types";
 
-export type EmployeeDoc = {
-  name: string;
-  id: number;
-  age: number;
-};
+export type EmployeeDoc = Employee;
 
 let client = null;
 let db = null;

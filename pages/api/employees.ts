@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { withDatabase, employees, createNewEmployee } from "../../server/db";
 
@@ -12,6 +11,7 @@ export default withDatabase(
         endContract: new Date(req.body.endContract),
         endTrialPeriod: new Date(req.body.deliveryDate),
         returnDate: new Date(req.body.returnDate),
+        deliveryDate: new Date(req.body.deliveryDate),
       };
       await createNewEmployee(employee).then(() => {
         res.status(200).json(req.body);
