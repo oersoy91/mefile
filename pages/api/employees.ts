@@ -9,7 +9,7 @@ export default withDatabase(
         birthday: new Date(req.body.birthday),
         startContract: new Date(req.body.startContract),
         endContract: new Date(req.body.endContract),
-        endTrialPeriod: new Date(req.body.deliveryDate),
+        endTrialPeriod: new Date(req.body.endTrialPeriod),
         returnDate: new Date(req.body.returnDate),
         deliveryDate: new Date(req.body.deliveryDate),
       };

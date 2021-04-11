@@ -60,7 +60,7 @@ const NewEmployee = () => {
       position: position,
       status: status,
       equipment: eq,
-      inventoryNumber: parseInt(inNumber),
+      inventoryNumber: inNumber,
       serialNumber: serialNumber,
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),

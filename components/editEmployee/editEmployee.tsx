@@ -76,11 +76,10 @@ const EditEmployee = ({ employee }: EmployeeDetailProps) => {
       position: position,
       status: status,
       equipment: eq,
-      inventoryNumber: parseInt(inNumber),
+      inventoryNumber: inNumber,
       serialNumber: serialNumber,
       deliveryDate: new Date(deliveryDate).toISOString(),
       returnDate: new Date(returnDate).toISOString(),
-      profileImg: "",
     });
     notify();
     setTimeout(() => router.push(`/employee/${ID}`), 3000);
