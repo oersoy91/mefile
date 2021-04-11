@@ -1,6 +1,7 @@
 import styles from "./login.module.css";
 import Popup from "../popup/popup";
 import { useState } from "react";
+import Link from "next/link";
 
 const Login = () => {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -24,7 +25,9 @@ const Login = () => {
           />
           <img src="img/passwordIcon.svg" alt="passwordIcon" />
         </div>
-        <button className={styles.btn}>Anmelden</button>
+        <Link href={"/dashboard"}>
+          <button className={styles.btn}>Anmelden</button>
+        </Link>
         <div className={styles.newAccount}>
           <p>
             Noch kein Account?{" "}
