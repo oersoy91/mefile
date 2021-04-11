@@ -1,9 +1,9 @@
-# MEFILE &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
+# mefile &middot; [![Build Status](https://img.shields.io/travis/npm/npm/latest.svg?style=flat-square)](https://travis-ci.org/npm/npm) [![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)](https://www.npmjs.com/package/npm) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/your/your-project/blob/master/LICENSE)
 
 > Manage Your Employee Files Digitally
 
 This is my capstone project for the Neue Fische Web Development bootcamp I attended in spring of 2021.
-[mefile](https://mefile.herokuapp.com/) is a web app it is a digital archive and counterpart to the paper employee file. All HR documents are available electronically and accessible from anywhere. Administrative tasks are reduced and this saves time, space and costs. It works best in a web browser.
+[mefile](https://mefile.herokuapp.com/) is a digital personnel file. The digital personnel file is an electronic form of the old familiar paper personnel file. Personnel data can be created, deleted and changed effortlessly. In addition, important data and deadlines are clearly displayed through intelligent support. It works best in a web browser.
 
 ## Installing / Getting started
 
