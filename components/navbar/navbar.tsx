@@ -13,7 +13,7 @@ function Navbar() {
           <Link href="/dashboard">
             <img
               className={styles.logo}
-              src="/img/mefileIcon.svg"
+              src="/img/mefileIcon.png"
               alt="mefileIcon"
             />
           </Link>

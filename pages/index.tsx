@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.header}>
-          <img src="img/mefileLogo.svg" alt="logo" />
+          <img src="img/mefileLogo.png" alt="logo" />
           <p className={styles.heading}>Deine digiale Personalakte</p>
         </div>
         <Login />
